@@ -2,6 +2,7 @@ const express = require("express"); // requerimientos
 const mongoose = require("mongoose");
 const app = express();
 require("dotenv").config();
+const cors = require("cors");
 const PayRouter = require("./api/PayRouter");
 const UserRouter = require("./api/UserRouter");
 const CommentBlogRouter = require("./api/CommentBlogRouter");
@@ -22,6 +23,7 @@ app.use(fileUpload({ // subir archivos al cloudinary
     useTempFiles: true
 }))
 
+app.use(cors())
 app.use("/api", PayRouter)
 app.use("/api", UserRouter)
 app.use("/api", CommentBlogRouter)
@@ -29,6 +31,8 @@ app.use("/api", CommentVideoRouter)
 app.use("/api", VideoRouter)
 app.use("/api", BlogRouter)
 app.use("/api", CategoryRouter)
+
+
 
 
 

@@ -71,7 +71,7 @@ UserRouter.post("/newuser", async (req, res) => {
         password,
         DNI,
         BankData,
-        Role
+        // Role
     } = req.body
     try {
 
@@ -152,12 +152,13 @@ UserRouter.post("/newuser", async (req, res) => {
             password: passwordhash,
             DNI,
             BankData,
-            Role
+            // Role
         })
 
         await newuser.save()
         return res.status(200).send({
             success: true,
+            message: "Usuario creado correctamente",
             newuser
 
         })
