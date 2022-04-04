@@ -38,7 +38,7 @@ BlogRouter.get("/findnew/:id", auth, async (req, res) => {
     } = req.params
     try {
         // let blog = await Blog.findById(id).populate({ path: 'user', select: 'name' }).populate("category").populate('commentNew')
-        let blog = await Blog.findById(id, "titleNew").populate({
+        let blog = await Blog.findById(id, " date titleNew description").populate({
             path: 'category',
             select: 'categoryName'
         }).populate({

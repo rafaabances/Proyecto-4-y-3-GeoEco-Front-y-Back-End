@@ -1,0 +1,99 @@
+.icono{
+    height: 100px !important;
+    width: 100px !important;
+    border: solid 1px rgb(1, 1, 104);
+}
+
+.fondo{
+    background-image: linear-gradient(150deg, rgba(205, 205, 227, 0.788) 50%, rgba(4, 10, 121, 0.911) 100%);
+}
+
+.labelR{
+    font-size: 17px;
+    font-family: sans-serif;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: rgb(122, 105, 3);
+    font-weight: bold;
+}
+
+.Registro{
+color: rgb(4, 4, 165);
+font-weight: bold;
+font-size: 30px;
+margin: 10px;
+}
+
+.registroboton2{
+    color: white;
+    font-weight: bold;
+    border: solid yellow 3px;
+    background-color: rgb(3, 3, 110);
+    margin-left: 120px;
+    margin-right: 120px;
+    border-radius: 25px;
+margin-top: 40px;
+}
+
+
+
+.geo2{
+    color: rgb(4, 171, 4) !important;
+    font-weight: bold;
+}
+
+.eco2{
+    color:rgb(171, 171, 4);
+    font-weight: bold;
+}
+
+.web{
+    color: orangered;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.preguntare2{
+    color:  black;
+    text-shadow: 1px 1px 1px white ;
+    font-weight: bold;
+    font-size: 20px;
+  margin-top: 30px;
+   
+}
+
+.tenemos{
+    color: blue;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px white ;
+}
+
+.GeoEco2{
+    height: 70px !important;
+    width: 70px !important;
+    border: solid 3px rgb(1, 1, 104);
+    border-radius: 50px;
+    opacity: 0.9;
+
+    margin: 5px;
+}
+
+.ecocien{
+    height: 150px !important;
+    width: 300px !important;
+    border: solid 3px rgb(1, 1, 104);
+    border-radius: 50px;
+    opacity: 0.9;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+
+}
+
+.artvid{
+    color: rgb(2, 2, 121);
+    text-shadow: 1px 1px 1px white ;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+}

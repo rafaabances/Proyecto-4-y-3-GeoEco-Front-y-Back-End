@@ -1,0 +1,43 @@
+.NavBar {
+    
+ 
+    border: solid 2px yellow;
+ 
+ }
+
+ .grande{
+    font-size: 25px;
+    font-weight: bold;
+ }
+
+ .geo{
+     color: rgb(5, 209, 5) !important;
+     font-weight: bold;
+ }
+
+ .eco{
+     color:yellow;
+     font-weight: bold;
+ }
+
+ .backg{
+     background-color: rgb(78, 78, 78);
+     border: solid 2px gold;
+     font-weight: bold;
+ }
+
+ .yellow{
+     color: yellow !important;
+     font-weight: bold;
+ }
+
+ .whit{
+     color: white !important;
+     font-weight: bold;
+ }
+
+ .admin{
+    color: white !important;
+    font-weight: bold;
+    font-style: italic;
+ }

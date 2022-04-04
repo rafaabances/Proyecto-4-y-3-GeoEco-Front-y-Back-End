@@ -32,7 +32,7 @@ VideoRouter.get("/findvideo/:id", auth, async (req, res) => {
     try {
         // let video = await Video.findById(id, "titleVideo category user commentV")
         // .populate({ path: 'user', select: 'name' }).populate("category").populate("commentVideo")
-        let video = await Video.findById(id, "titleVideo").populate({
+        let video = await Video.findById(id, " date titleVideo description").populate({
             path: 'category',
             select: 'categoryName'
         }).populate({

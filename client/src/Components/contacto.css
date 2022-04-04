@@ -1,0 +1,98 @@
+ .fondo{
+    background-image: linear-gradient(150deg, rgba(205, 205, 227, 0.788) 50%, rgba(4, 10, 121, 0.911) 100%);
+}
+
+
+.geo{
+    color: rgb(5, 209, 5) !important;
+    font-weight: bold;
+}
+
+.eco{
+    color:rgb(201, 201, 4);
+    font-weight: bold;
+}
+
+
+
+.GeoEco{
+    height: 150px !important;
+    width: 150px !important;
+    border: solid 3px rgb(1, 1, 104);
+    border-radius: 50px;
+    opacity: 0.9;
+
+    margin: 20px;
+}
+
+.GeoEco2{
+    height: 70px !important;
+    width: 70px !important;
+    border: solid 3px rgb(1, 1, 104);
+    border-radius: 50px;
+    opacity: 0.9;
+
+    margin: 5px;
+}
+
+
+.web{
+    color: orangered;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.quienes{
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+.registrate{
+    color: rgb(97, 4, 4);
+    font-weight: bold;
+}
+
+.registrate2{
+    color: rgb(240, 6, 6);
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+
+
+.geoe{
+    color: rgb(175, 150, 5);
+    font-weight: bold;
+}
+
+.pregunta{
+    color: rgb(10, 10, 195);
+    font-weight: bold;
+    margin: 20px;
+}
+
+
+
+.registroboton{
+    color: white;
+    font-weight: bold;
+    border: solid yellow 3px;
+    background-color: rgb(199, 23, 17);
+    margin-left: 120px;
+    margin-right: 120px;
+    border-radius: 25px;
+}
+
+.exclama{
+    margin: 20px;
+    color: white;
+    text-shadow: 1px 1px 1px yellow;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+

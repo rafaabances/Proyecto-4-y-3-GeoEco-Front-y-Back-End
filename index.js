@@ -8,6 +8,7 @@ const UserRouter = require("./api/UserRouter");
 const CommentBlogRouter = require("./api/CommentBlogRouter");
 const CommentVideoRouter = require("./api/CommentVideoRouter");
 const VideoRouter = require("./api/VideoRouter");
+const VideoRouter2 = require("./api/VideoUploadRouter");
 const BlogRouter = require("./api/BlogRouter");
 const CategoryRouter = require("./api/CategoryRouter");
 const fileUpload = require("express-fileupload") // subir archivos cloudinary
@@ -15,10 +16,8 @@ const fileUpload = require("express-fileupload") // subir archivos cloudinary
 
 const fs = require("fs") // se usa para tenener base de datos en Local,
 
-app.use(express.json({
-    extended: true
-}))
-app.use(express.urlencoded())
+app.use(express.json({extended:true}))
+app.use(express.urlencoded({extended:true}))
 app.use(fileUpload({ // subir archivos al cloudinary
     useTempFiles: true
 }))
@@ -31,6 +30,7 @@ app.use("/api", CommentVideoRouter)
 app.use("/api", VideoRouter)
 app.use("/api", BlogRouter)
 app.use("/api", CategoryRouter)
+app.use("/api", VideoRouter2)
 
 
 

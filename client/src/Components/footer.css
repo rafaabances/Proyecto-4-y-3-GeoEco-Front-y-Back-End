@@ -1,0 +1,36 @@
+footer img {
+    height: 40px;
+    width: 40px !important;
+    border: solid 0px !important;
+    margin: 5px;
+ }
+ 
+ .twit {
+    width: 60px !important;
+ }
+ 
+ th {
+    font-size: 20px;
+ }
+ 
+ 
+ footer span {
+    color: yellow;
+    font-size: 18px;
+ }
+
+ .dark{
+    background-color: rgba(0, 0, 0, 0.2);
+ }
+
+ .Footer{
+    border: solid 2px green;
+ }
+
+.bot {
+   font-weight: bold;
+   background-color: rgb(1, 1, 65);
+}
+ 
+
+ 

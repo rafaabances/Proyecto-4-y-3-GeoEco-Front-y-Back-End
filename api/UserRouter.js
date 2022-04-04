@@ -71,7 +71,7 @@ UserRouter.post("/newuser", async (req, res) => {
         password,
         DNI,
         BankData,
-        // Role
+        // role
     } = req.body
     try {
 
@@ -81,6 +81,8 @@ UserRouter.post("/newuser", async (req, res) => {
             email
         }) // para que no te deje crear 2 usuarios con el mismo email, el findOne te lo busca por cualquier propiedad en este caso por email.
 
+
+    
 
         if (user) {
             return res.status(400).send({
@@ -152,7 +154,7 @@ UserRouter.post("/newuser", async (req, res) => {
             password: passwordhash,
             DNI,
             BankData,
-            // Role
+            // role
         })
 
         await newuser.save()
@@ -250,6 +252,8 @@ UserRouter.post("/login", async (req, res) => {
             email
         })
 
+        
+        console.log(user)
 
         if (!email) {
             return res.status(400).send({
@@ -280,6 +284,7 @@ UserRouter.post("/login", async (req, res) => {
             })
         }
 
+        const role = user.role
         const token = accessToken({
             id: user._id
         }) // te crea el token cuando te logueas
@@ -287,7 +292,10 @@ UserRouter.post("/login", async (req, res) => {
         return res.status(200).send({
             success: true,
             message: "Usuario logueado correctamente",
-            token
+            token,
+            role
+            
+            
         })
     } catch (error) {
         return res.status(500).send({

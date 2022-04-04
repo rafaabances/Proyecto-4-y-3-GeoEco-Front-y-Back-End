@@ -1,0 +1,119 @@
+.fondocv{
+    background-image: linear-gradient(150deg, rgba(219, 162, 97, 0.788) 50%, rgba(4, 10, 121, 0.911) 100%);
+}
+
+
+.registro{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 83%;
+}
+
+.botonRcv{
+    margin-top: 60px;
+
+    margin-left: 100px;
+    margin-right: 100px;
+
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: gold;
+    background-color: rgb(1, 39, 6)
+}
+
+.labelCV{
+    font-size: 17px;
+    font-family: sans-serif;
+    font-style:italic ;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: rgb(244, 8, 8);
+    font-weight: bold;
+}
+
+.Crearvid{
+color: rgb(1, 1, 64);
+font-weight: bold;
+font-size: 30px;
+margin: 10px;
+font-style: italic;
+}
+
+.borR{
+    border: solid 3px rgb(1, 83, 1);
+    border-radius: 2%;
+}
+
+.chek{
+    margin-top: 580px;
+    margin-left: 140px;
+}
+
+.registrobotoncv{
+    color: white;
+    font-weight: bold;
+    border: solid yellow 3px;
+    background-color: rgb(80, 3, 3);
+    margin-left: 130px;
+    margin-right: 130px;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+.geo{
+    color: rgb(5, 209, 5) !important;
+    font-weight: bold;
+}
+
+.eco{
+    color:rgb(201, 201, 4);
+    font-weight: bold;
+}
+
+.web{
+    color: orangered;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.preguntare{
+    color:  black;
+    text-shadow: 1px 1px 1px white ;
+    font-weight: bold;
+    font-size: 25px;
+   
+}
+
+.flecha{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    margin: 20px;
+    border: solid 3px blue;
+}
+
+.crearv{
+    color: rgb(84, 72, 3);
+    font-style: italic;
+}
+
+.iconocv{
+    height: 100px !important;
+    width: 100px !important;
+    border: solid 1px rgb(1, 1, 104);
+    margin: 20px;
+}
+
+.botonRsel{
+
+
+
+
+    font-weight: bold;
+    color: gold;
+    background-color: rgb(2, 2, 80)
+}
