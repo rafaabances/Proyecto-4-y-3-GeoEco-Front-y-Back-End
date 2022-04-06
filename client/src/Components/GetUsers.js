@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./getUsers.css";
 import Navbar from "./NavBar";
 import Usuario from "./img/Usuario.png"
 import Usuarios from "./img/Usuarios.png"
+import GetUser from "./DeleteUser";
 
 
 
@@ -18,7 +19,6 @@ const GetUsers = () => {
     const [successMessage, setSuccessMessage] = useState(null)
     const [errorMessage, setErrorMessage] = useState(null)
 
-    const navigate = useNavigate()
 
     useEffect(() => {
         const getUsers = async () => {
@@ -37,23 +37,7 @@ const GetUsers = () => {
     }, []) // se pone array vacío porque si no sería un bucle infinito, renderizaría continuamente, con la array hace el renderizado hasta que encuentre toda la array. 
 
 
-    const deleteUser = async () => {
-        try {
-            const res = await axios.delete(`http://localhost:5000/api/deleteuser/${userId}`, {
-                headers:
-                {
-                    "Authorization": token
-                }
-            })
-            setSuccessMessage(res.data.message)
-            setTimeout(() => {
-                navigate("/consultarusuarios")
-            }, 3000) // tiempo en milisegundos para ir de un endpoint a otro.
-
-        } catch (error) {
-            setErrorMessage(error.res.data.message)
-        }
-    }
+   
 
 
     return (
@@ -75,8 +59,7 @@ const GetUsers = () => {
                                 <h5 className="tituloVpayU"> <span className="dirU">Email:</span>  {user.email} </h5>
                                 <h5 className="clasecolU"> <span className="dirU">DNI:</span>  {user.DNI} </h5>
                                 <h5 className="tiposusU"> <span className="dirU">Rol:</span>  {user.role} / (0 = Sus. y 1 = Admin.)  </h5>
-                                <button className="botonborrarU" onClick={deleteUser}>Borrar Usuario</button>
-
+                                <GetUser />
 
                             </div>
                         </Link>

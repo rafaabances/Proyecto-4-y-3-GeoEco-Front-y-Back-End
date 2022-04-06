@@ -25,7 +25,11 @@ import GetPay from './Components/GetPays';
 import CreateCategory from './Components/CreateCategory';
 import GetCategories from './Components/GetCategories';
 
+import GetCategory from './Components/DeleteCategory';
+
 import GetUsers from './Components/GetUsers';
+
+import GetUser from './Components/DeleteUser';
 
 import { Routes, Route } from "react-router-dom"
 
@@ -65,12 +69,15 @@ const App = () => { // function App() {
         <Route path="/logout" element={<Logout />} />
 
         <Route path="/crearcategoria" element={<CreateCategory />} />
-        <Route path="/consultarcategorias" element={<GetCategories />} />
+        <Route path="/consultarcategorias/:categoryId" element={<GetCategories />} />
+        <Route path="/deletecategory" element={<GetCategory />} />
 
 
         <Route path="/consultarpagos" element={<GetPay />} />
 
-        <Route path="/consultarusuarios" element={<GetUsers />} />
+        <Route path="/consultarusuarios/:userId" element={<GetUsers />} />
+        <Route path="/deleteuser" element={<GetUser />} />
+
 
       </Routes>
       <Footer />

@@ -149,7 +149,7 @@ CommentBlogRouter.get("/commentblog/:id", auth, async (req, res) => { // auth?
 CommentBlogRouter.post("/newcommentblog/:blogId", auth, async (req, res) => {
     const userId = req.user.id; // del middleware del token
     const {
-        commentTextBlog
+        comment
     } = req.body;
     const {
         blogId
@@ -157,7 +157,7 @@ CommentBlogRouter.post("/newcommentblog/:blogId", auth, async (req, res) => {
 
     let comentario = new CommentBlog({
         userId,
-        commentTextBlog,
+        commentTextBlog: comment,
         blog: blogId,
     });
 

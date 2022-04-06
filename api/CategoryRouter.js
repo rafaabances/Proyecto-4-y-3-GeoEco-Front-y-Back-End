@@ -20,6 +20,37 @@ CategoryRouter.get("/categories", auth, async (req, res) => {
     }
 })
 
+
+CategoryRouter.get("/findcategory/:id", auth, async (req, res) => {
+    const {
+        id
+    } = req.params
+    try {
+        let category = await Category.findById(id)
+
+        //errores antes de la respuesta final
+
+        if (!category) {
+            res.status(400).send({
+                success: false,
+                message: error.message
+            })
+        }
+
+        res.status(200).send({
+            success: true,
+            message: "Categoría encontrada",
+            user
+        })
+
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: error.message
+        })
+    }
+})
+
 CategoryRouter.post("/newcategory", auth, authAdmin, async (req, res) => {
     const {
         categoryName

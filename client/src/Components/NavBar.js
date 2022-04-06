@@ -113,10 +113,10 @@ const Navbar = () => {
                   <Link to="/consultarpagos" className="admin nav-link">Consultar Pagos</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/consultarcategorias" className="admin nav-link">Consultar Categorias</Link>
+                  <Link to="/consultarcategorias/:categoryId" className="admin nav-link">Consultar Categorias</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/consultarusuarios" className="admin nav-link">Consultar Usuarios</Link>
+                  <Link to="/consultarusuarios/:userId" className="admin nav-link">Consultar Usuarios</Link>
                 </li>
               </ul>
               <form className="d-flex">

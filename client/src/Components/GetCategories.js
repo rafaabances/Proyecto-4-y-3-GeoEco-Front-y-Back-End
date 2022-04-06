@@ -1,26 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./getCategories.css";
 import Navbar from "./NavBar";
 import Cat from "./img/cat.jpg";
 import Categoría from "./img/categoria.jpg";
+import GetCategory from "./DeleteCategory";
 
 
 
 const GetCategories = () => {
-    const { categoryId } = useParams() //recibes el prámetro de Noticias Js
+
 
     const [categories, setCategories] = useState([])
     const token = localStorage.getItem("token")
     //tendrás que coger el role cuando sea post ya que para esto necesitas ser administrador
 
-    const [successMessage, setSuccessMessage] = useState(null)
-    const [errorMessage, setErrorMessage] = useState(null)
 
 
 
-    const navigate = useNavigate()
+
 
     useEffect(() => {
         const getCategories = async () => {
@@ -39,23 +38,7 @@ const GetCategories = () => {
     }, []) // se pone array vacío porque si no sería un bucle infinito, renderizaría continuamente, con la array hace el renderizado hasta que encuentre toda la array. 
 
 
-    const deleteCategory = async () => {
-        try {
-            const res = await axios.delete(`http://localhost:5000/api/deletecategory/${categoryId}`, {
-                headers:
-                {
-                    "Authorization": token
-                }
-            })
-            setSuccessMessage(res.data.message)
-            setTimeout(() => {
-                navigate("/consultarcategorias")
-            }, 3000) // tiempo en milisegundos para ir de un endpoint a otro.
 
-        } catch (error) {
-            setErrorMessage(error.res.data.message)
-        }
-    }
 
 
 
@@ -78,8 +61,8 @@ const GetCategories = () => {
                             <div className="caja" >
 
                                 <h5 className="tiposus"> <span className="dirC">Categoría:</span>  {category.categoryName} </h5>
-                                <button className="botonborrarcat" onClick={deleteCategory}>Borrar Categoría</button>
-
+                                
+                                <GetCategory />
 
                             </div>
                         </Link>
@@ -88,13 +71,7 @@ const GetCategories = () => {
                 })
             }
 
-            <div className="message_ok" style={{ display: successMessage ? "block" : "none" }}>
-                {successMessage}
-            </div>
-
-            <div className="message_error" style={{ display: errorMessage ? "block" : "none" }}>
-                {errorMessage}
-            </div>
+    
 
             <Link to="/contenido" className="registroboton3  nav-link active " >Atrás</Link>
             <img className="iconocat" src={Categoría} />
