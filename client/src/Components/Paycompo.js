@@ -9,7 +9,7 @@ import Flecha from "./img/flechaabajo.jpg";
 
 const Paycompo = () => {
     const [pay, setPay] = useState({
-        user: "", // traer del usuario que vien???
+      
         address: "",
         paymentId: "",
         membership: "",
@@ -17,6 +17,7 @@ const Paycompo = () => {
 
     const [successMessage, setSuccessMessage] = useState(null)
     const [errorMessage, setErrorMessage] = useState(null)
+    const token = localStorage.getItem("token")
 
     const navigate = useNavigate()
 
@@ -34,7 +35,12 @@ const Paycompo = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newpayment", { ...pay });
+            const response = await axios.post("http://localhost:5000/api/newpayment", { ...pay },{
+                headers: 
+                {
+                    "Authorization": token
+                }
+            });
             console.log(response)
             // localStorage.setItem("token", response.data.accessToken ) // esto irá en el login
             setSuccessMessage(response.data.message)
@@ -43,6 +49,7 @@ const Paycompo = () => {
             }, 3000) // tiempo en milisegundos para ir de un endpoint a otro.
 
         } catch (error) {
+            console.log(error)
             setErrorMessage(error.response.data.message)
         }
     }
@@ -55,14 +62,14 @@ const Paycompo = () => {
 
             <form onSubmit={registerSubmit} className="registro" >
                 <h2 className="Pago" >Pago</h2>
-                <label className="labelR" htmlFor="user">Usuario</label>
-                <input className="expand-lg borR" type="text" name="user" value={pay.user} placeholder="Introduzca su susuario" onChange={onChangeInput} />
+                {/* <label className="labelR" htmlFor="user">Usuario</label>
+                <input className="expand-lg borR" type="text" name="user" value={pay.user} placeholder="Introduzca su susuario" onChange={onChangeInput} /> */}
                 <label className="labelR" htmlFor="address">Dirección</label>
                 <input className="expand-lg borR" type="text" name="address" value={pay.address} placeholder="Introduzca su dirección" onChange={onChangeInput} />
                 <label className="labelR" htmlFor="paymentId">paymentId</label>
                 <input className="expand-lg borR" type="text" name="paymentId" value={pay.paymentId} placeholder="Introduzca su paymentId" onChange={onChangeInput} />
                 <label className="labelR" htmlFor="membership">Tipo de suscripción</label>
-                <select  className="op" name="membership">
+                <select  className="op" name="membership" onChange={onChangeInput}>
                     <option  className="op" value="value1">Premium  10 Euros/mes</option>
                     <option  className="op" value="value2">Plata 5 Euros/mes</option>
                     <option  className="op" value="value3">Bronze 1 Euro/mes </option>
@@ -70,7 +77,7 @@ const Paycompo = () => {
 
 
                 <label className="labelR" htmlFor="invalidCheck2">Acepto las condiciones del Banco para procecer al pago</label>
-                <input className="form-check-input  expand-lg borR chek " type="checkbox" />
+                <input className="form-check-input  expand-lg borR chekpago " type="checkbox" />
                 <button className="botonR btn btn-outline-dark " type="Submit">Pago</button>
 
 
@@ -86,9 +93,10 @@ const Paycompo = () => {
 
             </form>
 
-            <h3 className="preguntare">¿Ya estás registrado?</h3>
+            <h3 className="preguntare1">¿Deseas volver atras?</h3>
+            <h5 className="preguntare2">No se creará un usuario</h5>
             <img className="flecha" src= {Flecha} />
-            <Link to="/login" className="registroboton nav-link active " aria-current="page" >Login</Link>
+            <Link to="/" className="registroboton nav-link active " aria-current="page" >Atrás</Link>
             
             <img className="GeoEco" src={GeoEco1} />
 

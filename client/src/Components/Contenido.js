@@ -26,6 +26,7 @@ const Contenido = () => {
 
             <p className="preguntare2"> Accede a nuestros <span className="artvid">Vídeos</span> <img className="GeoEco2" src= {videos} /></p>
             <img className="icono" src= {Icon} />
+            
             <Link to="/videos" className="registroboton2 nav-link active " >Vídeos</Link>
             
 

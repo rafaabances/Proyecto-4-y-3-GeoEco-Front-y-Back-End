@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./createvideo.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -9,21 +9,41 @@ import Icon from "./img/Icon.svg";
 
 
 const CreateVideo = () => {
+    const [category, setCategory] = useState([])
+
+    useEffect(()=>{
+        const getCategory = async () =>{
+            const response = await axios.get("http://localhost:5000/api/categories",
+            {
+                headers:{
+                    "Authorization": token
+                }
+
+            
+            });
+            console.log(response)
+            setCategory(response.data.categories)
+            
+        }
+        getCategory()
+    },[]) 
+
+
     const [vid, setvid] = useState({
         titleVideo: "",
         description: "",
         date: "",
-        category: "",
+        categoryId: "",
     })
 
     const [successMessage, setSuccessMessage] = useState(null)
     const [errorMessage, setErrorMessage] = useState(null)
-
+    const token = localStorage.getItem("token")
     const navigate = useNavigate()
 
     const onChangeInput = e => { //e=event
-        const { vid2, value } = e.target // con target guardamos los datos que vamos escribiendo dentro de nuestro input.
-        setvid({ ...vid, [vid2]: value })
+        const { name, value } = e.target // con target guardamos los datos que vamos escribiendo dentro de nuestro input.
+        setvid({ ...vid, [name]: value })
     }
 
 
@@ -35,7 +55,13 @@ const CreateVideo = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newvideo", { ...vid });
+            const response = await axios.post("http://localhost:5000/api/newvideo", { ...vid },
+            {
+                headers:{
+                    "Authorization": token
+                }
+
+            });
             console.log(response)
             // localStorage.setItem("token", response.data.accessToken ) // esto irá en el login
             setSuccessMessage(response.data.message)
@@ -54,13 +80,22 @@ const CreateVideo = () => {
             <form onSubmit={registerSubmit} className="registro" >
                 <h2 className="Crearvid" >Crear <span className="crearv">Vídeo </span><img className="GeoEco2" src= {videos} /></h2>
                 <label className="labelCV" htmlFor="name">Título</label>
-                <input className="expand-lg borR" type="text" name="name" value={vid.titleVideo} placeholder="Introduzca el título" onChange={onChangeInput} />
+                <input className="expand-lg borR" type="text" name="titleVideo" value={vid.titleVideo} placeholder="Introduzca el título" onChange={onChangeInput} />
                 <label className="labelCV" htmlFor="email">Texto</label>
-                <input className="expand-lg borR" type="text" name="email" value={vid.description} placeholder="Introduzca el texto" onChange={onChangeInput} />
+                <input className="expand-lg borR" type="text" name="description" value={vid.description} placeholder="Introduzca el texto" onChange={onChangeInput} />
                 <label className="labelCV" htmlFor="contraseña">date</label>
-                <input className="expand-lg borR" type="text" name="password" value={vid.date} placeholder="Introduzca la fecha" onChange={onChangeInput} />
+                <input className="expand-lg borR" type="date" name="date" value={vid.date} placeholder="Introduzca la fecha" onChange={onChangeInput} />
                 <label className="labelCV" htmlFor="DNI">Categoría</label>
-                <input className="expand-lg borR" type="text" name="DNI" value={vid.category} placeholder="Introduzca la categoría" onChange={onChangeInput} />
+                <select name="categoryId"  onChange={onChangeInput}>
+                {
+                    category.map(categoria =>{
+                        return(
+                            <option key={categoria._id} value={categoria._id}>{categoria.categoryName} </option>
+                        )
+                    })
+                }
+            </select>
+
                 <label className="labelCV" htmlFor="DNI">Seleccione el Vídeo</label>
                 <input className="botonRsel" type="file" />
                 <button className="botonRcv btn btn-outline-dark " type="Submit">Crear</button>

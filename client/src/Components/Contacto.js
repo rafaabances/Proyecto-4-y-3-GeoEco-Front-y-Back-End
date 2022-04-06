@@ -4,6 +4,8 @@ import GeoEco from "./img/GeoEco2.jpg";
 import GeoEco1 from "./img/GeoEco1.jpg";
 import videos from "./img/videos.jpg";
 import artículos from "./img/artículos.jpg";
+import Mapa from "./img/Mapa.jpg";
+import Direccion from "./img/Direccion.jpg";
 
 
 import { Link } from "react-router-dom";
@@ -15,7 +17,7 @@ const Contacto = () => {
             <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
             <h2 className="web">La web del Conocimiento</h2>
             <img className="GeoEco" src= {GeoEco} />
-            <h5 className="quienes">¿Quénes somos?</h5>
+            <h5 className="quienes">¿Quiénes somos?</h5>
 
             <p className="registrate">Somos una web de contenidos que funciona como tu enciclopedia electrónica, dinámica y potenciadora de conocimiento.
             nuestro equipo, lleva trabajando en ella desde 2015. <p>
@@ -31,7 +33,11 @@ const Contacto = () => {
             <p className="pregunta">¿Ya tienes cuenta?</p>
             <Link to="/login" className="registroboton nav-link active" >Sign In</Link>
 
-    
+            <h5 className="quienes">Nos encontraras fisicamente en:</h5>
+            <img className="mapa" src= {Mapa} />
+
+            <h5 className="quienes">Nuestra dirección:</h5>
+            <img className="direccion" src= {Direccion} />
 
             <p className="exclama">Únete a nuestra comunidad! </p>
 

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-// import "./register.css";
+import "./crearcomentarioN.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 
 const CreateCommentN = () => {
-    const [commentN, setCommentN] = useState({
-        userId: "",
-        commentTextBlog: "",
-        blog: "",
-        likes:"",
+    const token = localStorage.getItem("token")
+    const { noticiaId } = useParams()
+    const [commentNew, setCommentN] = useState({
+        // userId: "",
+        comment: "",
+        // blog: "",
+        // likes:"",
         
     
     })
@@ -20,12 +22,12 @@ const CreateCommentN = () => {
 
 
     const onChangeInput = e => { //e=event
-        const { comN, value } = e.target // con target guardamos los datos que vamos escribiendo dentro de nuestro input.
-        setCommentN({ ...commentN, [comN]: value })
+        const { name, value } = e.target // con target guardamos los datos que vamos escribiendo dentro de nuestro input.
+        setCommentN({ ...commentNew, [name]: value })
     }
 
 
-    console.log(commentN)
+    console.log(commentNew)
 
 
     const registerSubmit = async e => {
@@ -33,10 +35,18 @@ const CreateCommentN = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newcommentblog/:blogId", { ...commentN });
+            const response = await axios.post(`http://localhost:5000/api/newcommentblog/${noticiaId}`, { ...commentNew },
+            {
+                headers:{
+                    "Authorization": token
+                }
+            });
             console.log(response)
             // localStorage.setItem("token", response.data.accessToken ) // esto irá en el login
             setSuccessMessage(response.data.message)
+            setTimeout(() => {
+                window.location.href = `/noticias/${noticiaId}`
+             }, 3000) // tiempo en milisegundos para ir de un endpoint a otro.
          // tiempo en milisegundos para ir de un endpoint a otro.
 
         } catch (error) {
@@ -48,10 +58,10 @@ const CreateCommentN = () => {
         <div >
          
             <form onSubmit={registerSubmit} className="registro" >
-                <h2 className="Crearcategoría" >Comentar</h2>
-                <label className="labelR" htmlFor="name">Texto</label>
-                <input className="expand-lg borR" type="text" name="name" value={commentN.comment} placeholder="Introduzca comentario" onChange={onChangeInput} />
-                <button className="botonR btn btn-outline-dark " type="Submit">Enviar</button>
+                <h2 className="titulocomentar" >Comente aquí!</h2>
+                <label className="introducir" htmlFor="name"> Sea libre de introducir un Texto</label>
+                <input className=" reducir expand-lg borR" type="text" name="comment" value={commentNew.comment} placeholder="Introduzca comentario" onChange={onChangeInput} />
+                <button className="botonRcomen btn btn-outline-dark " type="Submit">Enviar</button>
 
 
 

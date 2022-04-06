@@ -10,13 +10,13 @@
     width: 83%;
 }
 
-.botonR{
-    margin-top: 60px;
+.botonRcomen{
+    margin-top: 20px;
 
-    margin-left: 100px;
-    margin-right: 100px;
+    
+    margin-right: 220px;
 
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     font-weight: bold;
     color: gold;
     background-color: rgb(2, 2, 80)
@@ -170,24 +170,67 @@ margin: 10px;
     margin: 20px;
 }
 
-.borrar{
-    color: rgb(139, 5, 5);
-    text-shadow: 1px 1px 1px rgb(139, 5, 5);
+.des{
+    color: black;
     font-weight: bold;
-    font-size: 18px;
-    text-align: left;
-    margin-left: 20px;
-    margin-top: 70px;
+    /* text-shadow: 1px 1px 1px black; */
+    font-size: 17px;
 }
 
-.botonborrar{
-    color: white;
+.date{
+    color: rgb(222, 146, 5);
+    text-shadow: 1px 1px 1px black;
     font-weight: bold;
-    border: solid yellow 3px;
-    background-color: rgb(199, 23, 17);
-    margin-left: 10px;
-    margin-right: 220px;
-    border-radius: 25px;
-    margin-bottom: 20px;
+    font-size: 17px;
 }
+
+.cate{
+    color: green;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.likesnoti{
+    color: rgb(23, 0, 128);
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+}
+
+.titlecomentario{
+    color: rgb(213, 11, 11);
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.comentarios{
+    color: black;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+}
+
+.titulocomentar{
+    color: rgb(7, 7, 135);
+    text-shadow: 1px 1px 1px rgb(7, 7, 135);
+    font-weight: bold;
+    font-size: 18px;
+     text-align: left;
+}
+
+.introducir{
+    color:  orangered;
+    text-shadow: 1px 1px 1px orangered;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+}
+
+.reducir{
+    margin-right: 100px;
+}
+
+
 

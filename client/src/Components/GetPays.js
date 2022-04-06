@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import "./noticias.css";
+import "./getpays.css";
 import Navbar from "./NavBar";
+import Pago from "./img/Pago.jpg"
+import Pago2 from "./img/Pago2.png"
 
 
 
@@ -30,10 +32,11 @@ const GetPays = () => {
     }, []) // se pone array vacío porque si no sería un bucle infinito, renderizaría continuamente, con la array hace el renderizado hasta que encuentre toda la array. 
 
     return (
-        <div>
+        <div className="fondo">
             <Navbar />
-            <h1 className="noticiash1">GeoEco</h1>
-            <h2 className="noticiash2">La web del Conocimiento</h2>
+            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+            <h2 className="web">La web del Conocimiento</h2>
+            <h1 className="tenemos2pay">Los pagos de los Usuarios  <img className="GeoEco2" src={Pago} /></h1>
             {
 
                 payments.map(pago => {
@@ -41,12 +44,12 @@ const GetPays = () => {
 
                         <Link key={pago._id} to={`/pagos/${pago._id}`}>
 
-                            <div >
+                            <div className="caja" >
 
-                                <h5 className="noticiash3"> {pago.user} </h5>
-                                <h5 className="noticiash3"> {pago.address} </h5>
-                                <h5 className="noticiash3"> {pago.paymentId} </h5>
-                                <h5 className="noticiash3"> {pago.membership} </h5>
+                                <h5 className="tituloVpayP"> <span className="dirP">Usuario:</span>  {pago.user} </h5>
+                                <h5 className="payidP"> <span className="dirP">Dirección:</span> {pago.address} </h5>
+                                <h5 className="clasecol"> <span className="dirP">PaymentId:</span> {pago.paymentId} </h5>
+                                <h5 className="tiposusP"> <span className="dirP">Tipo de Suscripción:</span> {pago.membership} </h5>
                                
 
                             </div>
@@ -55,7 +58,8 @@ const GetPays = () => {
                     )
                 })
             }
-            <Link to="/contenido" className="geo nav-link active " >Atrás</Link>
+            <Link to="/contenido" className="registroboton3  nav-link active " >Atrás</Link>
+            <img className="ecocien2" src={Pago2} />
         </div>
     )
 }

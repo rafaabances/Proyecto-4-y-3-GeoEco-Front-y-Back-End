@@ -46,8 +46,8 @@ margin: 10px;
 
 }
 
-.chek{
-    margin-top: 480px;
+.chekpago{
+    margin-top: 400px;
     margin-left: 140px;
 }
 
@@ -79,11 +79,19 @@ margin: 10px;
     font-weight: bold;
 }
 
-.preguntare{
-    color:  black;
+.preguntare1{
+    color:  rgb(3, 3, 194);
     text-shadow: 1px 1px 1px white ;
     font-weight: bold;
     font-size: 25px;
+   
+}
+
+.preguntare2{
+    color:  red;
+    text-shadow: 1px 1px 1px white ;
+    font-weight: bold;
+    font-size: 20px;
    
 }
 

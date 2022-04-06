@@ -1,26 +1,36 @@
 import { Link } from "react-router-dom";
-import Navbar from "./NavBar";
-
-const Logout = () => {
-    localStorage.removeItem("token")
-    localStorage.removeItem("role")
+import "./logOut.css";
+import GeoEco2 from "./img/GeoEco2.jpg";
 
 
-    return (
-        <div>
 
-            <div className="logout">
-                <h2>Esperamos verle pronto !!!!</h2>
 
-            </div>
+const Logout = () =>{
+    
+localStorage.removeItem("token")
+localStorage.removeItem("role")
 
-            <Link to="/login">
-            <button> Ir al Login </button>
 
-            </Link>
+return(
+    <div className="fondo">
 
-       </div>
-    )
+
+
+    <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+    <h2 className="web">La web del Conocimiento</h2>
+
+      
+        <div className="logout" >
+            <h2 className="Logout" >Esperamos verte pronto !!!</h2>
+        </div>
+        <Link to="/login">
+            <button className="boton ">Ir al login</button>
+        </Link>
+        <img className="GeoEco" src={GeoEco2} />
+    </div>
+)
+
+
 }
 
-export default Logout;
+export default Logout

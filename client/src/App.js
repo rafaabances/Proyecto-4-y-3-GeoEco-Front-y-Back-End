@@ -10,24 +10,31 @@ import Noticia from './Components/Noticia';
 import CreateCommentN from './Components/CrearComentarioN';
 import CreateNoticia from './Components/CreateNoticia';
 
+import NoticiaModify from './Components/NoticiaModify';
+
 import Videos from './Components/Videos';
 import Videocompo from './Components/Videocompo';
 import CreateCommentV from './Components/CrearComentarioV';
 import CreateVideo from './Components/CreateVídeo';
 
+import VideoModify from './Components/VideoModify';
+
 import Paycompo from './Components/Paycompo';
 import GetPay from './Components/GetPays';
 
 import CreateCategory from './Components/CreateCategory';
+import GetCategories from './Components/GetCategories';
+
+import GetUsers from './Components/GetUsers';
 
 import { Routes, Route } from "react-router-dom"
-
-
 
 
 import Footer from './Components/Footer';
 
 import Logout from './Components/LogOut';
+
+
 
 
 const App = () => { // function App() {
@@ -46,17 +53,24 @@ const App = () => { // function App() {
         <Route path="/comentarioblog/:noticiaId" element={<CreateCommentN />} />
         <Route path="/crearnoticia" element={<CreateNoticia />} />
 
+        <Route path="/noticiamodify/:noticiaId" element={<NoticiaModify />} />
+
         <Route path="/videos" element={<Videos />} />
         <Route path="/videos/:videoId" element={<Videocompo />} />
         <Route path="/comentariovideo/:videoId" element={<CreateCommentV />} />
         <Route path="/crearvideo" element={<CreateVideo />} />
+
+        <Route path="/videomodify/:videoId" element={<VideoModify />} />
         
         <Route path="/logout" element={<Logout />} />
 
         <Route path="/crearcategoria" element={<CreateCategory />} />
+        <Route path="/consultarcategorias" element={<GetCategories />} />
 
 
         <Route path="/consultarpagos" element={<GetPay />} />
+
+        <Route path="/consultarusuarios" element={<GetUsers />} />
 
       </Routes>
       <Footer />

@@ -88,6 +88,24 @@ CategoryRouter.put("/updatecategory/:id", auth, authAdmin, async (req, res) => {
 })
 
 
+CategoryRouter.delete("/deletecategory/:id", auth, async (req, res) => {
+    const {
+        id
+    } = req.params
+    try {
+        await Category.findByIdAndDelete(id)
+        return res.status(200).send({
+            success: true,
+            message: "Categoría eliminado"
+        })
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: error.message
+        })
+    }
+})
+
 
 
 

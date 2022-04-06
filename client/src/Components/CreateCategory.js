@@ -8,6 +8,7 @@ import Categoría from "./img/categoria.jpg";
 
 
 const CreateCategory = () => {
+    const token = localStorage.getItem("token")
     const [category, setCategory] = useState({
         categoryName: "",
     
@@ -31,7 +32,12 @@ const CreateCategory = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newcategory", { ...category });
+            const response = await axios.post("http://localhost:5000/api/newcategory", { ...category }, {
+                headers:{
+                    "Authorization": token
+                }
+            });
+            
             console.log(response)
             // localStorage.setItem("token", response.data.accessToken ) // esto irá en el login
             setSuccessMessage(response.data.message)
@@ -48,7 +54,7 @@ const CreateCategory = () => {
             <form onSubmit={registerSubmit} className="registro" >
                 <h2 className="Crearvidcat" >Crear <span className="crearcat">Categoría </span> <img className="GeoEco2cat" src= {Cat} /></h2>
                 <label className="labelCV" htmlFor="name">Nombre de la Categoría</label>
-                <input className="expand-lg borR" type="text" name="name" value={category.name} placeholder="Introduzca la nueva categoría" onChange={onChangeInput} />
+                <input className="expand-lg borR" type="text" name="categoryName" value={category.name} placeholder="Introduzca la nueva categoría" onChange={onChangeInput} />
                 <button className="botonRcv btn btn-outline-dark " type="Submit">Crear Categoría</button>
 
 

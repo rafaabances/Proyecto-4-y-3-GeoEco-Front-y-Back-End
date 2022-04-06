@@ -93,11 +93,11 @@ margin: 10px;
     border: solid 3px blue;
 }
 
-.tenemos2{
+.tenemos2pay{
     color: blue;
     font-weight: bold;
     text-shadow: 1px 1px 1px white ;
-    font-size: 30px;
+    font-size: 27px;
     margin: 30px;
 }
 
@@ -112,9 +112,9 @@ margin: 10px;
 }
 
 .ahora{
-    color: rgb(254, 252, 254);
+    color: rgb(3, 3, 63);
     font-weight: bold;
-    text-shadow: 1px 1px 1px black ;
+    text-shadow: 1px 1px 1px white ;
     font-size: 20px;
     margin-top: 20px;
 
@@ -128,38 +128,57 @@ margin: 10px;
 
 }
 
-.blog{
-    color: rgb(1, 60, 1);
+.youtube{
+    color: rgb(215, 4, 4);
     font-weight: bold;
     text-shadow: 1px 1px 1px white ;
     font-size: 25px;
 
 }
 
-.blog2{
-    color: rgb(1, 60, 1);
+.youtube2{
+    color: rgb(215, 4, 4);
     font-weight: bold;
     text-shadow: 1px 1px 1px white ;
-    font-size: 25px;
+    font-size: 20px;
 
 }
 
-.titulo{
+.tituloVpay{
     color: rgb(219, 5, 5);
     font-weight: bold;
     text-shadow: 1px 1px 1px black;
-    font-size: 25px;
+    font-size: 20px;
+    text-align: left;
 }
 
-.likes2{
-    color: rgb(25, 215, 4);
+.dirC{
+    color: rgb(5, 5, 179);
     font-weight: bold;
     text-shadow: 1px 1px 1px black;
-    font-size: 18px;
+    font-size: 19px;
+    text-align: left;
 }
 
-.noticia{
-    color: rgb(215, 4, 4);
+.payid{
+    color: rgb(15, 123, 3);
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+    font-size: 16px;
+    text-align: left;
+}
+
+.tiposus{
+    color: rgb(183, 120, 5);
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+    font-size: 16px;
+    text-align: left;
+}
+
+
+.videoV{
+    color: orange;
     font-weight: bold;
     text-shadow: 2px 2px 2px black;
     font-size: 20px;
@@ -168,19 +187,10 @@ margin: 10px;
 .caja{
     border: solid 4px grey;
     margin: 20px;
+    background-color: rgb(199, 199, 223);
 }
 
-.borrar{
-    color: rgb(139, 5, 5);
-    text-shadow: 1px 1px 1px rgb(139, 5, 5);
-    font-weight: bold;
-    font-size: 18px;
-    text-align: left;
-    margin-left: 20px;
-    margin-top: 70px;
-}
-
-.botonborrar{
+.botonborrarcat{
     color: white;
     font-weight: bold;
     border: solid yellow 3px;
@@ -188,6 +198,8 @@ margin: 10px;
     margin-left: 10px;
     margin-right: 220px;
     border-radius: 25px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
+
 

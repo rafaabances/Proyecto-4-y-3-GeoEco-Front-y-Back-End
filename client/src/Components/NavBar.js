@@ -44,7 +44,7 @@ const Navbar = () => {
                   <Link to="/" className="yellow nav-link">Contacto</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/login" className="yellow nav-link">LogOut</Link>
+                  <Link to="/logout" className="yellow nav-link">LogOut</Link>
                 </li>
               </ul>
               <form className="d-flex">
@@ -98,7 +98,7 @@ const Navbar = () => {
                   <Link to="/" className="yellow nav-link">Contacto</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/login" className="yellow nav-link">LogOut</Link>
+                  <Link to="/logout" className="yellow nav-link">LogOut</Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/crearvideo" className="admin nav-link">Subir Vídeo</Link>
@@ -107,19 +107,16 @@ const Navbar = () => {
                   <Link to="/crearnoticia" className="admin nav-link">Subir Noticia</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/modificarnoticia" className="admin nav-link">Modificar Noticia</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/eliminarvideo" className="admin nav-link">Eliminar Video</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/eliminarnoticia" className="admin nav-link">Eliminar Noticia</Link>
-                </li>
-                <li className="nav-item">
                   <Link to="/crearcategoria" className="admin nav-link">Crear Categoría</Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/consultarpagos" className="admin nav-link">Consultar Pagos</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/consultarcategorias" className="admin nav-link">Consultar Categorias</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/consultarusuarios" className="admin nav-link">Consultar Usuarios</Link>
                 </li>
               </ul>
               <form className="d-flex">

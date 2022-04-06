@@ -8,6 +8,13 @@ const cloudinary = require("cloudinary")
 const fs = require("fs")
 
 
+// INTRODUCIMOS LA CONFIGURACIÓN DE CLOUDINARY
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET
+})
+
 VideoRouter.get("/videos", auth, async (req, res) => {
     let videos = await Video.find({}) // Se hace con find ( find viene de mongoose) para buscar dentro de la colección, así devuelve todos los objetos que hay en Author
     try {
@@ -85,12 +92,12 @@ VideoRouter.post("/newvideo", auth, authAdmin, async (req, res) => {
             titleVideo,
             description,
             date,
-            category,
+            categoryId,
 
         } = req.body
 
 
-        if (titleVideo.length < 10) {
+        if (titleVideo.length < 5) {
             return res.status(400).send({
                 success: false,
                 message: "Título del vídeo demasiado corto"
@@ -153,14 +160,13 @@ VideoRouter.post("/newvideo", auth, authAdmin, async (req, res) => {
             titleVideo,
             description,
             date,
-            category: category,
+            category: categoryId,
             user: req.user.id
         })
 
         await video.save()
         return res.status(200).send({
             success: true,
-            message: "Vídeo creado",
             video
         })
 
@@ -180,12 +186,12 @@ VideoRouter.put("/updatevideo/:id", auth, authAdmin, async (req, res) => {
     const {
         titleVideo,
         description,
-        date
+        categoryId
     } = req.body
     try {
 
 
-        if (titleVideo.length < 10) {
+        if (titleVideo.length < 5) {
             return res.status(400).send({
                 success: false,
                 message: "Título del artículo demasiado corto"
@@ -202,7 +208,7 @@ VideoRouter.put("/updatevideo/:id", auth, authAdmin, async (req, res) => {
         await Video.findByIdAndUpdate(id, {
             titleVideo,
             description,
-            date,
+            category: categoryId,
         })
 
         return res.status(200).send({
@@ -223,22 +229,22 @@ VideoRouter.delete("/deletevideo/:id", auth, authAdmin, async (req, res) => {
     const {
         id
     } = req.params
-    const {
-        public_id
-    } = req.body
+    // const {
+    //     public_id
+    // } = req.body
     try {
 
-        if (!public_id) {
-            return res.status(400).json({
-                success: false,
-                message: "No se han seleccionado vídeos",
-            });
-         }
+        // if (!public_id) {
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: "No se han seleccionado vídeos",
+        //     });
+        //  }
 
         await Video.findByIdAndDelete(id)
-        cloudinary.v2.uploader.destroy(public_id, async (err, result) => {
-            if (err) throw err;
-        });
+        // cloudinary.v2.uploader.destroy(public_id, async (err, result) => {
+        //     if (err) throw err;
+        // });
 
         res.json({
             success: true,

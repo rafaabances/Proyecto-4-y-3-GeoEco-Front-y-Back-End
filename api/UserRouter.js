@@ -158,10 +158,15 @@ UserRouter.post("/newuser", async (req, res) => {
         })
 
         await newuser.save()
+        const token = accessToken({
+            id: newuser._id
+        
+        }) // te crea el token cuando te logueas
+
         return res.status(200).send({
             success: true,
             message: "Usuario creado correctamente",
-            newuser
+            newuser, token
 
         })
 

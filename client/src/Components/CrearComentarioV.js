@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-// import "./register.css";
+import "./crearcomentarioV.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 
 
 
 const CreateCommentV = () => {
+    const token = localStorage.getItem("token")
+    const { videoId } = useParams()
     const [commentV, setCommentV] = useState({
-        userId: "",
-        commentTextVideo: "",
-        video: "",
-        likes:"",
+        // userId: "",
+        comment: "",
+        // video: "",
+        // likes:"",
         
     
     })
@@ -20,8 +23,8 @@ const CreateCommentV = () => {
 
 
     const onChangeInput = e => { //e=event
-        const { comV, value } = e.target // con target guardamos los datos que vamos escribiendo dentro de nuestro input.
-        setCommentV({ ...commentV, [comV]: value })
+        const { name, value } = e.target // con target guardamos los datos que vamos escribiendo dentro de nuestro input.
+        setCommentV({ ...commentV, [name]: value })
     }
 
 
@@ -33,10 +36,18 @@ const CreateCommentV = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newcommentvideo/:videoId", { ...commentV });
+            const response = await axios.post(`http://localhost:5000/api/newcommentvideo/${videoId}`, { ...commentV },
+            {
+                headers:{
+                    "Authorization": token
+                }
+            })
             console.log(response)
             // localStorage.setItem("token", response.data.accessToken ) // esto irá en el login
             setSuccessMessage(response.data.message)
+            setTimeout(() => {
+               window.location.href = `/videos/${videoId}`
+            }, 3000) // tiempo en milisegundos para ir de un endpoint a otro.
          // tiempo en milisegundos para ir de un endpoint a otro.
 
         } catch (error) {
@@ -47,11 +58,11 @@ const CreateCommentV = () => {
     return (
         <div >
           
-            <form onSubmit={registerSubmit} className="registro" >
-                <h2 className="Crearcategoría" >Comentar</h2>
-                <label className="labelR" htmlFor="name">Texto</label>
-                <input className="expand-lg borR" type="text" name="name" value={commentV.comment} placeholder="Introduzca comentario" onChange={onChangeInput} />
-                <button className="botonR btn btn-outline-dark " type="Submit">Enviar</button>
+          <form onSubmit={registerSubmit} className="registro" >
+                <h2 className="titulocomentar" >Comente aquí!</h2>
+                <label className="introducir" htmlFor="name"> Sea libre de introducir un Texto</label>
+                <input className=" reducir expand-lg borR" type="text" name="comment" value={commentV.comment} placeholder="Introduzca comentario" onChange={onChangeInput} />
+                <button className="botonRcomen btn btn-outline-dark " type="Submit">Enviar</button>
 
 
 

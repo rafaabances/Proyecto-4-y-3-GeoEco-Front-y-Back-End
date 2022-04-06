@@ -2,12 +2,17 @@ const express = require("express")
 const Pay = require("../models/Pay")
 const PayRouter = express.Router();
 const auth = require("../middleware/auth") // esto para que el newarticle solo lo pueda hacer alguien que esté logueado
-const authAdmin = require("../middleware/authAdmin") // esto para que solo lo pueda hacer el administrador
+const authAdmin = require("../middleware/authAdmin"); // esto para que solo lo pueda hacer el administrador
+const User = require("../models/User");
 
 
 PayRouter.get("/payments", auth, authAdmin, async (req, res) => {
-    let Payments = await Pay.find({}) // Se hace con find ( find viene de mongoose) para buscar dentro de la colección, así devuelve todos los objetos que hay en Author
     try {
+        let Payments = await Pay.find({})
+        .populate({
+            path: 'user',
+            select: 'name'
+        }) // Se hace con find ( find viene de mongoose) para buscar dentro de la colección, así devuelve todos los objetos que hay en Author
 
 
         return res.status(200).send({
@@ -60,17 +65,17 @@ PayRouter.get("/findpay/:id", auth, async (req, res) => {
 })
 
 
-PayRouter.post("/newpayment", async (req, res) => {
+PayRouter.post("/newpayment", auth,  async (req, res) => {
     const {
-        user,
         address,
         paymentId,
         membership
     } = req.body
 
-
+    const {id} = req.user.id
+    // const userId = await User.findById(id)
     let PayN = new Pay({ // viene del modelo user
-        user: user,
+        user: id,
         address,
         paymentId,
         membership
@@ -83,7 +88,7 @@ PayRouter.post("/newpayment", async (req, res) => {
         })
     }
 
-    if (!user || !address || !paymentId || !membership) {
+    if (!address || !paymentId || !membership) {
         return res.status(400).send({
             success: false,
             message: "No has completado todos los campos"

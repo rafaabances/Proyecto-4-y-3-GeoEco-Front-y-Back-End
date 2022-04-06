@@ -92,7 +92,7 @@ BlogRouter.post("/newarticle", auth, authAdmin, async (req, res) => { // pasamos
             titleNew,
             description,
             date,
-            category
+            categoryId
         } = req.body
 
 
@@ -112,28 +112,28 @@ BlogRouter.post("/newarticle", auth, authAdmin, async (req, res) => { // pasamos
 
         }
 
-        if (!req.files || Object.keys(req.files).length === 0)
-            return res.status(400).json({
-                msg: 'No files were uploaded.'
-            })
+        // if (!req.files || Object.keys(req.files).length === 0)
+        //     return res.status(400).json({
+        //         msg: 'No files were uploaded.'
+        //     })
 
-        const file = req.files.file;
-        console.log(file)
+        // const file = req.files.file;
+        // console.log(file)
 
-        if (file.size > 4000 * 3000) {
-            removeTmp(file.tempFilePath)
-            return res.status(400).json({
-                msg: 'Size too large'
-            })
-        }
+        // if (file.size > 4000 * 3000) {
+        //     removeTmp(file.tempFilePath)
+        //     return res.status(400).json({
+        //         msg: 'Size too large'
+        //     })
+        // }
 
-        if (file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png') {
-            removeTmp(file.tempFilePath)
+        // if (file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png') {
+        //     removeTmp(file.tempFilePath)
 
-            return res.status(400).json({
-                msg: "File format is incorrect."
-            })
-        }
+        //     return res.status(400).json({
+        //         msg: "File format is incorrect."
+        //     })
+        // }
 
         // let newFile = await cloudinary.v2.uploader.upload(file.tempFilePath, {
         //     folder: "filesUpload"
@@ -142,21 +142,21 @@ BlogRouter.post("/newarticle", auth, authAdmin, async (req, res) => { // pasamos
         //     removeTmp(file.tempFilePath)
         // })
 
-        const newFile = await cloudinary.v2.uploader.upload(file.tempFilePath, {
-            folder: "imagenes"
-        })
-        removeTmp(file.tempFilePath);
+        // const newFile = await cloudinary.v2.uploader.upload(file.tempFilePath, {
+        //     folder: "imagenes"
+        // })
+        // removeTmp(file.tempFilePath);
 
 
         let blog = new Blog({ // viene del modelo user
             titleNew,
             description,
-            image: {
-                public_id: newFile.public_id,
-                url: newFile.secure_url
-            },
+            // image: {
+            //     public_id: newFile.public_id,
+            //     url: newFile.secure_url
+            // },
             date,
-            category: category,
+            category: categoryId,
             user: req.user.id
         })
         await blog.save()
@@ -180,11 +180,11 @@ BlogRouter.put("/updatenew/:id", auth, authAdmin, async (req, res) => {
     const {
         titleNew,
         description,
-        date,
+        categoryId
     } = req.body
     try {
 
-        if (titleNew.length < 10) {
+        if (titleNew.length < 5) {
             return res.status(400).send({
                 success: false,
                 message: "Título del artículo demasiado corto"
@@ -203,7 +203,7 @@ BlogRouter.put("/updatenew/:id", auth, authAdmin, async (req, res) => {
         await Blog.findByIdAndUpdate(id, {
             titleNew,
             description,
-            date,
+            category: categoryId,
         })
 
 
@@ -225,22 +225,22 @@ BlogRouter.delete("/deletenew/:id", auth, authAdmin, async (req, res) => { // fa
     const {
         id
     } = req.params
-    const {
-        public_id
-    } = req.body
+    // const {
+    //     public_id
+    // } = req.body
     try {
 
-        if (!public_id) {
-            return res.status(400).json({
-                success: false,
-                message: "No se han seleccionado imagenes",
-            });
-        }
+        // if (!public_id) {
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: "No se han seleccionado imagenes",
+        //     });
+        // }
 
         await Blog.findByIdAndDelete(id)
-        cloudinary.v2.uploader.destroy(public_id, async (err, result) => {
-            if (err) throw err;
-        });
+        // cloudinary.v2.uploader.destroy(public_id, async (err, result) => {
+        //     if (err) throw err;
+        // });
 
         res.json({
             success: true,

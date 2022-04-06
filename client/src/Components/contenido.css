@@ -57,15 +57,16 @@ margin-top: 40px;
     color:  black;
     text-shadow: 1px 1px 1px white ;
     font-weight: bold;
-    font-size: 20px;
-  margin-top: 30px;
-   
+    font-size: 18px;
+    margin-top: 30px;
+    margin-right: 10px;
 }
 
 .tenemos{
     color: blue;
     font-weight: bold;
     text-shadow: 1px 1px 1px white ;
+    margin-right: 20px;
 }
 
 .GeoEco2{
@@ -95,5 +96,5 @@ margin-top: 40px;
     text-shadow: 1px 1px 1px white ;
     font-style: italic;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
 }

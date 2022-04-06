@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./noticias.css";
 import Navbar from "./NavBar";
+import Blog from "./img/Blog.jpg";
+import artículos from "./img/artículos.jpg";
 
 
 
@@ -30,20 +32,25 @@ const Noticias = () => {
     }, []) // se pone array vacío porque si no sería un bucle infinito, renderizaría continuamente, con la array hace el renderizado hasta que encuentre toda la array. 
 
     return (
-        <div>
+        <div className="fondo">
             <Navbar />
-            <h1 className="noticiash1">GeoEco</h1>
-            <h2 className="noticiash2">La web del Conocimiento</h2>
-            {
+            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+            <h2 className="web">La web del Conocimiento</h2>
+            <h1 className="tenemos2">Todas nuestras Noticias  <img className="GeoEco2" src= {artículos} /></h1>
+          {
 
                 noticias.map(noticia => {
                     return (
 
+                     
+
                         <Link key={noticia._id} to={`/noticias/${noticia._id}`}>
 
-                            <div >
-
-                                <h3 className="noticiash3"> {noticia.titleNew} </h3>
+                            <div className="caja">
+                               
+                                <h3 className="titulo"> Título:  {noticia.titleNew} </h3>
+                                {/* <h3 className="noticia" >Noticia: {noticia.image} </h3> */}
+                                <h3 className="likes2"> Nº de Likes: {noticia.likes.length} </h3>
 
                             </div>
                         </Link>
@@ -51,7 +58,12 @@ const Noticias = () => {
                     )
                 })
             }
-            <Link to="/contenido" className="geo nav-link active " >Atrás</Link>
+          
+            <Link to="/contenido" className="registroboton3  nav-link active " >Atrás</Link>
+            <h1 className="ahora">Ahora puedes disfrutar de todos los Noticias de nuestro <span className="blog2">Blog</span></h1>
+            <h1 className="siguenos">Síguenos en nuestro Blog <span className="blog">GeoEco</span> !</h1>
+            <img className="ecocien2" src= {Blog} />
+            
         </div>
     )
 }
