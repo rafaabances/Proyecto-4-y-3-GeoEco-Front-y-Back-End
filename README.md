@@ -39,7 +39,8 @@ Se trata de un proyecto en el cual se va a desarrollar una web de contenidos sob
 
 ## Tenologías hemos empleado: 
 
-![1_NFTgwZ_TUmceZnSHCundBw](https://user-images.githubusercontent.com/96442220/157254389-430a6b4f-c169-4dce-a55d-c94e44ddbc0a.jpg)
+![Mern](https://user-images.githubusercontent.com/96442220/162167570-4391228d-e653-4899-ab1a-8b1ea984ca9e.png)
+
 
 ![Postman](https://user-images.githubusercontent.com/96442220/153619900-b7e046bc-6146-4175-ba61-23f6d37c7fed.png)
 
