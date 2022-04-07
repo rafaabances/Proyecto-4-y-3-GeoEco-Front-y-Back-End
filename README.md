@@ -1,11 +1,10 @@
-# Proyecto-3-GeoEco-Back-End
+# Proyecto-4 y 3-GeoEco-Front y Back-End
 
 ## GeoEco.Com
 
 <!-- Accede a la web: [FútbolRafi.com](https://futbolrafi.netlify.app/home) --> // poner la URL del web buena cuando se cree.
 
-![Home](https://user-images.githubusercontent.com/96442220/157253251-0a835e08-72d9-4028-a06b-700eafe21840.png)
-
+![Portada](https://user-images.githubusercontent.com/96442220/162167230-2e18274b-60d3-4418-b267-d9e2e7c6005c.jpg)
 
 
 Se trata de un proyecto en el cual se va a desarrollar una web de contenidos sobre Geología y Economía y también a futuro diversos temas sobre ciencia, política economía, esta destinado a personas curiosas que les guste aprender sobre este tipo de temas, va a constar de una página Home otra de contactos, otra de vídeos y otra de blog de artículos y noticias en los cuales se va a poder realizar comentarios, para acceder a la Home y a la página de contacto no va a ser necesario suscribirse y pagar pero para acceder a los contenidos del blog y vídeos sí. Esto se va a controlar estableciendo un acceso en el que será necesario escribir tu usuario y contraseña y para poder validar este usuario o contraseña que obtienes registrándote en el formulario de la página de contactos, deberás haber pagado el importe mensual/anual que se haya establecido.
@@ -22,8 +21,26 @@ Se trata de un proyecto en el cual se va a desarrollar una web de contenidos sob
 ***
 5. Vídeos: Aquí el suscriptor podrá visualizar todo tipo de vídeos agrupados en 2 categorías Geología y Economía,  también se podrá responder con comentarios a esas noticias y artículos, solo podrá acceder quien se haya suscrito y realizado el pago.
 ***
+6. Login: Aquí el suscriptor o administrador podrán loguearse.
+
+7. Registro: Aquí el suscriptor podrá registrarse y procederá al pago.
+***
+
+8. Pago: Aquí el suscriptor podrá realizar el pagop en la categoría que considere y accederá al Login.
+***
+
+9. LogOut: Aquí se podrá desloguearse tanto el suscriptor como el administrador.
+***
+
+10. Contenidos: Aquí los suscriptores podrán ver los contenidos de vídeos y noticias.
+***
+
+11. Contacto/Landing Page: En esta página se explica como es la empresa, lo que contiene y se puede registrar o hacer login, lo que te permite acceder a los contenidos.
+***
 
 * En blogs y videos se podrá poner comentarios.
+
+
 
 ## Para poder acceder hemos utilizado 2 tipos de usuarios:
 
@@ -40,11 +57,32 @@ Se trata de un proyecto en el cual se va a desarrollar una web de contenidos sob
 
 ## Tenologías hemos empleado: 
 
-![1_NFTgwZ_TUmceZnSHCundBw](https://user-images.githubusercontent.com/96442220/157254389-430a6b4f-c169-4dce-a55d-c94e44ddbc0a.jpg)
+![Mern](https://user-images.githubusercontent.com/96442220/162167570-4391228d-e653-4899-ab1a-8b1ea984ca9e.png)
+
 
 ![Postman](https://user-images.githubusercontent.com/96442220/153619900-b7e046bc-6146-4175-ba61-23f6d37c7fed.png)
 
 ![images](https://user-images.githubusercontent.com/96442220/157254686-8fb73679-084e-482d-b0ae-7e0aa2dd9231.png)
+
+- React o React.js  es una biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página. Es mantenido por Facebook y la comunidad de software libre: Ha sido nustro lenguaje de Front End, con el hemos conectado las rutas del back y las hemos puesto en los diversos componentes que se han ido creando así como hemos codificado que queriamos que saliera en cada componente, tenemos componentes de:
+
+     - Vídeos
+     - Noticias
+     - Comentarios
+     - Login
+     - LogOut
+     - Registro
+     - modificar noticia y vídeo
+
+Hemos usados diversos Hooks, Los Hooks son una nueva característica en React 16.8. Estos te permiten usar el estado y otras características de React sin escribir una clase.
+
+   - UseState: Aquí, useState es un Hook . Lo llamamos dentro de un componente de función para agregarle un estado local. React mantendrá este estado entre re-renderizados. useState devuelve un par: el valor de estado actual y una función que le permite actualizarlo. Puedes llamar a esta función desde un controlador de eventos o desde otro lugar. Es similar a this.setState en una clase, excepto que no combina el estado antiguo y el nuevo. (Mostraremos un ejemplo comparando useState con this.state en Usando el Hook de estado).El único argumento para useState es el estado inicial. En el ejemplo anterior, es 0 porque nuestro contador comienza desde cero. Ten en cuenta que a diferencia de this.state, el estado aquí no tiene que ser un objeto — aunque puede serlo si quisieras. El argumento de estado inicial solo se usa durante el primer renderizado.
+
+   - UseEffect: El Hook de efecto, useEffect, agrega la capacidad de realizar efectos secundarios desde un componente de función. Tiene el mismo propósito que componentDidMount,componentDidUpdate y componentWillUnmount en las clases React, pero unificadas en una sola API. (Mostraremos ejemplos comparando useEffect con estos métodos en Usando el Hook de efecto). Cuando llamas a useEffect, le estás diciendo a React que ejecute tu función de “efecto” después de vaciar los cambios en el DOM. Los efectos se declaran dentro del componente para que tengan acceso a sus props y estado. 
+   
+   - UseNavigate: Sirve para que la página se vaya a otro componente, pero sin recargar la página.
+   
+   - UseParams: Sirve para coger la Id proveniente de otro componente y usarlo.
 
 
 - Node JS: Ha sido el lenguaje de Backend que hemos utilizado, lo hemos usado para realizar las rutas al servidor así como describir los modelos, exportarlos y conectarlos vía node modules.
@@ -199,5 +237,3 @@ En nuestro proyecto hemos realizado diversas rutas que interrealcionan modelos y
 Contacto: Hotmail: **rafaelabancesserrate@hotmail.com**
 Telf: **+34 608 292 160**
 
-#   P r o y e c t o - 4 - y - 3 - G e o E c o - F r o n t - y - B a c k - E n d  
- 
