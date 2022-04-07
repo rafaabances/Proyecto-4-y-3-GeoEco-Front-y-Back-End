@@ -74,6 +74,17 @@ Se trata de un proyecto en el cual se va a desarrollar una web de contenidos sob
      - Registro
      - modificar noticia y vídeo
 
+Hemos usados diversos Hooks, Los Hooks son una nueva característica en React 16.8. Estos te permiten usar el estado y otras características de React sin escribir una clase.
+
+   - UseState: Aquí, useState es un Hook . Lo llamamos dentro de un componente de función para agregarle un estado local. React mantendrá este estado entre re-renderizados. useState devuelve un par: el valor de estado actual y una función que le permite actualizarlo. Puedes llamar a esta función desde un controlador de eventos o desde otro lugar. Es similar a this.setState en una clase, excepto que no combina el estado antiguo y el nuevo. (Mostraremos un ejemplo comparando useState con this.state en Usando el Hook de estado).El único argumento para useState es el estado inicial. En el ejemplo anterior, es 0 porque nuestro contador comienza desde cero. Ten en cuenta que a diferencia de this.state, el estado aquí no tiene que ser un objeto — aunque puede serlo si quisieras. El argumento de estado inicial solo se usa durante el primer renderizado.
+
+   - UseEffect: El Hook de efecto, useEffect, agrega la capacidad de realizar efectos secundarios desde un componente de función. Tiene el mismo propósito que componentDidMount,componentDidUpdate y componentWillUnmount en las clases React, pero unificadas en una sola API. (Mostraremos ejemplos comparando useEffect con estos métodos en Usando el Hook de efecto). Cuando llamas a useEffect, le estás diciendo a React que ejecute tu función de “efecto” después de vaciar los cambios en el DOM. Los efectos se declaran dentro del componente para que tengan acceso a sus props y estado. 
+   
+   - UseNavigate: Sirve para que la página se vaya a otro componente, pero sin recargar la página.
+   
+   - UseParams: Sirve para coger la Id proveniente de otro componente y usarlo.
+
+
 - Node JS: Ha sido el lenguaje de Backend que hemos utilizado, lo hemos usado para realizar las rutas al servidor así como describir los modelos, exportarlos y conectarlos vía node modules.
 
      Dependencias:
