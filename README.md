@@ -1,4 +1,4 @@
-# Proyecto-3-GeoEco-Back-End
+# Proyecto-4 y 3-GeoEco-Front y Back-End
 
 ## GeoEco.Com
 
@@ -46,6 +46,15 @@ Se trata de un proyecto en el cual se va a desarrollar una web de contenidos sob
 
 ![images](https://user-images.githubusercontent.com/96442220/157254686-8fb73679-084e-482d-b0ae-7e0aa2dd9231.png)
 
+- React o React.js  es una biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página. Es mantenido por Facebook y la comunidad de software libre: Ha sido nustro lenguaje de Front End, con el hemos conectado las rutas del back y las hemos puesto en los diversos componentes que se han ido creando así como hemos codificado que queriamos que saliera en cada componente, tenemos componentes de:
+
+     - Vídeos
+     - Noticias
+     - Comentarios
+     - Login
+     - LogOut
+     - Registro
+     - modificar noticia y vídeo
 
 - Node JS: Ha sido el lenguaje de Backend que hemos utilizado, lo hemos usado para realizar las rutas al servidor así como describir los modelos, exportarlos y conectarlos vía node modules.
 
