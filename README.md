@@ -199,5 +199,3 @@ En nuestro proyecto hemos realizado diversas rutas que interrealcionan modelos y
 Contacto: Hotmail: **rafaelabancesserrate@hotmail.com**
 Telf: **+34 608 292 160**
 
-#   P r o y e c t o - 4 - y - 3 - G e o E c o - F r o n t - y - B a c k - E n d  
- 
