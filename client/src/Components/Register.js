@@ -41,6 +41,7 @@ const Register = () => {
             console.log(response)
             // localStorage.setItem("token", response.data.accessToken ) // esto irá en el login
             setSuccessMessage(response.data.message)
+            localStorage.setItem("token", response.data.token)
             setTimeout(() => {
                 navigate("/pago")
             }, 3000) // tiempo en milisegundos para ir de un endpoint a otro.

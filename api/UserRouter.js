@@ -166,7 +166,9 @@ UserRouter.post("/newuser", async (req, res) => {
         return res.status(200).send({
             success: true,
             message: "Usuario creado correctamente",
-            newuser, token
+            newuser, 
+            token
+
 
         })
 

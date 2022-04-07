@@ -46,6 +46,7 @@ const Paycompo = () => {
             console.log(response)
             // localStorage.setItem("token", response.data.accessToken ) // esto irá en el login
             setSuccessMessage(response.data.message)
+            localStorage.removeItem("token")
             setTimeout(() => {
                 navigate("/login")
             }, 3000) // tiempo en milisegundos para ir de un endpoint a otro.

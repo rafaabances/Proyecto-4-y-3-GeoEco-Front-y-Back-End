@@ -29,6 +29,8 @@ const GetPays = () => {
 
             setPayments(response.data.Payments) // hay que poner lo del back
             // setUser2(response.data.Payments.user)
+
+            console.log(response)
         }
 
         getpays()
