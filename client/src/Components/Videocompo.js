@@ -13,7 +13,7 @@ const Videocompo = () => {
     const { videoId } = useParams() //recibes el prámetro de Noticias Js
 
     const [video2, setVideo2] = useState({})
-    const [category, setCategory] = useState({})
+    const [category, setCategory] = useState([])
     const [comment, setComment] = useState([])
     const [like, setLike] = useState([])
     const token = localStorage.getItem("token")
@@ -23,6 +23,7 @@ const Videocompo = () => {
 
     const navigate = useNavigate()
 
+    
 
     useEffect(() => {
         const getVideo = async () => {
@@ -31,7 +32,7 @@ const Videocompo = () => {
                     "Authorization": token
                 }
             })
-
+    
             console.log(response)
             setVideo2(response.data.video)
             setCategory(response.data.video.category)
@@ -41,6 +42,21 @@ const Videocompo = () => {
 
         getVideo()
     }, [])
+
+    const addlikes = async () =>{
+        try {
+            const res = await axios.post(`http://localhost:5000/api/videolikes/${videoId}`, {...videoId}, {
+                headers: 
+                {
+                    "Authorization": token
+                }
+            })
+            setSuccessMessage(res.data.message)
+
+        } catch (error) {
+            setErrorMessage(error.message)
+        }
+    }
 
 
     const deleteVideo = async() =>{
@@ -66,19 +82,20 @@ const Videocompo = () => {
         <Navbar/>
         <div className="caja">
 
-            <h1 className="titulo">{video2.titleVideo}  </h1>
+            <h1 className="tituloV"><span className="titulovid">Título: </span> {video2.titleVideo}  </h1>
             
-            <p className="des">{video2.description} </p> 
+            <p className="des"> <span className="videotil">Descripción: </span> {video2.description} </p> 
             
-             <p className="videoV">{video2.videoV} </p>
-             <p className="date">{video2.date} </p>
+             <p className="videoV"> Vídeo:{video2.videoV} </p>
+             <p className="date"> <span className="videotil">Fecha:</span> {video2.date} </p>
+
       
 
             <div key={category._id}>
-                <p className="cate">{category.categoryName} </p>
+            <p className="cate"><span className="videotil">Categoría: </span> {category.categoryName} </p>
             </div>
 
-            
+{/*             
             <div>
                 {
                     like.map(megusta => {
@@ -90,7 +107,7 @@ const Videocompo = () => {
                         )
                     })
                 }
-            </div>
+            </div> */}
 
             </div>
 
@@ -98,12 +115,12 @@ const Videocompo = () => {
 
             <h2 className="titlecomentario">Comentarios:</h2>
 
-            <div className="cajacomen">
+            <div >
                 {
                     comment.map(comentario => {
                         return (
                             <div key={comentario._id}>
-                                <p className="comentarios">{comentario.commentTextVideo} </p>
+                                <p className="comentariosV">{comentario.commentTextVideo} </p>
 
                             </div>
                         )
@@ -111,13 +128,17 @@ const Videocompo = () => {
                 }
             </div>
             
-            <p className="borrar">Borrar solo por el Administrador</p>
+            <p className="borrar">Borrar /Modificar solo Administrador</p>
             <button className="botonborrar" onClick={deleteVideo}>Borrar Vídeo</button>
-            
-            <p className="borrar">Modificar solo por el Administrador</p>
             <Link key={video2._id} to={`/videomodify/${video2._id}`}>
-                <button className="botonborrar">Modificar Vídeo</button>
+                <button className="botonborrarv">Modificar Vídeo</button>
             </Link>
+
+            <p className="borrarv">Dar Like</p>
+
+            <button className="botonborrargustaV" onClick={addlikes}>Me Gusta</button>
+            
+            
             
            
 

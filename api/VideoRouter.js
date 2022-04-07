@@ -16,7 +16,12 @@ cloudinary.config({
 })
 
 VideoRouter.get("/videos", auth, async (req, res) => {
-    let videos = await Video.find({}) // Se hace con find ( find viene de mongoose) para buscar dentro de la colección, así devuelve todos los objetos que hay en Author
+    let videos = await Video.find({}).populate({
+        path: 'category',
+        select: 'categoryName'
+    })
+
+    // Se hace con find ( find viene de mongoose) para buscar dentro de la colección, así devuelve todos los objetos que hay en Author
     try {
 
         return res.status(200).send({
@@ -266,29 +271,33 @@ const removeTmp = (path) => {
         if (err) throw err;
     })
 }
-VideoRouter.post("/videolikes", auth, async (req, res) => {
-    const {VideoId, action } = req.body;
+VideoRouter.post("/videolikes/:videoId", auth, async (req, res) => {
+    const {videoId } = req.params;
     const {id} = req.user
     try {
-        let findvideo = await Video.findById(VideoId)
-        if (!findvideo) {
-            return res.status(400).send({
-                success: false,
-                message: "This Video does not exist"
-            })
-        }
+        let findvideo = await Video.findById(videoId)
+        // if (!findvideo) {
+        //     return res.status(400).send({
+        //         success: false,
+        //         message: "This Video does not exist"
+        //     })
+        // }
 
         let findUser = await findvideo.likes.find(user => user._id.equals(id))
         console.log(id)
         if(findUser){
-            await Video.findByIdAndUpdate(VideoId, { $pull: { likes: id} });
+            await Video.findByIdAndUpdate(videoId, { $pull: { likes: id} });
     
-            // return res.status(400).send({ / otra manera
-            //     success: false,
-            //     message: "Ya le has dado like a este blog"
-            // })
-        }else{
-            await Video.findByIdAndUpdate(VideoId, { $push: { likes: id} });
+            return res.status(200).send({ 
+                success: false,
+                message: "Ya le has dado like a este blog"
+            })
+        }else {
+            await Video.findByIdAndUpdate(videoId, { $push: { likes: id} });
+            return res.status(200).send({ 
+                success: true,
+                message: "Has dado like a este blog"
+            })
         }
 
 
@@ -305,9 +314,6 @@ VideoRouter.post("/videolikes", auth, async (req, res) => {
     //       break;
     //   }
 
-      return res.status(200).send({
-        success: true,
-      })
     } catch (error) {
         return res.status(500).send({
             succes: false,

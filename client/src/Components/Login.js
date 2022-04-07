@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import GeoEco1 from "./img/GeoEco1.jpg";
 import Flecha from "./img/flechaabajo.jpg"
+import Geología from "./img/Geología.jpg"
+import Economía from "./img/Economía.png"
 
 const Login = () => {
     const [user, setUser] = useState({
@@ -54,11 +56,11 @@ const Login = () => {
 
 
 
-            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+<h1><img className="GeoEco2" src= {Economía} /><span className="geo">Geo</span><span className="eco">Eco</span> <img className="GeoEco2" src= {Geología} /></h1>
             <h2 className="web">La web del Conocimiento</h2>
 
             <form onSubmit={loginSubmit} className="login" >
-                <h2 className="Login">Login</h2>
+                <h2 className="tenemos2pay">Login</h2>
                 <label className="label" htmlFor="email">Email</label>
                 <input className="expand-lg bor" type="text" name="email" value={user.email} placeholder="Introduzca su email" onChange={onChangeInput} />
                 <label className="label" htmlFor="contraseña">Contraseña</label>

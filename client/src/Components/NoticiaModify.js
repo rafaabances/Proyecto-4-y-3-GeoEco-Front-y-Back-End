@@ -5,6 +5,8 @@ import { useParams, Link , useNavigate} from "react-router-dom";
 import Navbar from "./NavBar";
 import Modificar from "./img/Modificar.jpg";
 import Editar from "./img/Editar.png";
+import Geología from "./img/Geología.jpg"
+import Economía from "./img/Economía.png"
 
 
 const NoticiaModify = () =>{
@@ -69,7 +71,7 @@ const NoticiaModify = () =>{
     return(
         <div className="fondo">
             <Navbar/>
-            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+            <h1><img className="GeoEco2" src= {Economía} /><span className="geo">Geo</span><span className="eco">Eco</span> <img className="GeoEco2" src= {Geología} /></h1>
             <h2 className="web">La web del Conocimiento</h2>
 
             <form onSubmit={formSubmit} className="registro">

@@ -8,14 +8,17 @@ import videos from "./img/videos.jpg";
 import artículos from "./img/artículos.jpg";
 import ciencia from "./img/Ciencia.jpg";
 import economía from "./img/Eco.jpg";
+import Geología from "./img/Geología.jpg"
+import Economía from "./img/Economía.png"
 
 const Contenido = () => {
     
     return (
         <div className="fondo">
             <Navbar/>
-            <h1><span className="geo2">Geo</span><span className="eco2">Eco</span></h1>
+            <h1><img className="GeoEco2" src= {Economía} /><span className="geo">Geo</span><span className="eco">Eco</span> <img className="GeoEco2" src= {Geología} /></h1>
             <h2 className="web">La web del Conocimiento</h2>
+            <h1 className="tenemos2pay">Contenidos</h1>
             <h5 className="tenemos">En <span className="geo2">Geo</span><span className="eco2">Eco</span> tenemos un gran número de contenidos para ti! </h5>
 
             <img className="ecocien" src= {economía} />

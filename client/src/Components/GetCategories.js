@@ -6,6 +6,8 @@ import Navbar from "./NavBar";
 import Cat from "./img/cat.jpg";
 import Categoría from "./img/categoria.jpg";
 import GetCategory from "./DeleteCategory";
+import Geología from "./img/Geología.jpg"
+import Economía from "./img/Economía.png"
 
 
 
@@ -48,7 +50,7 @@ const GetCategories = () => {
     return (
         <div className="fondo">
             <Navbar />
-            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+            <h1><img className="GeoEco2" src= {Economía} /><span className="geo">Geo</span><span className="eco">Eco</span> <img className="GeoEco2" src= {Geología} /></h1>
             <h2 className="web">La web del Conocimiento</h2>
             <h1 className="tenemos2pay">Las Categorias:  <img className="GeoEco2" src={Cat} /></h1>
             {

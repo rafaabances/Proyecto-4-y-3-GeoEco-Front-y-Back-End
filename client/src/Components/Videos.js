@@ -5,12 +5,15 @@ import "./videos.css";
 import Navbar from "./NavBar";
 import videos2 from "./img/videos.jpg";
 import Youtube from "./img/Youtube.jpg"
+import Geología from "./img/Geología.jpg"
+import Economía from "./img/Economía.png"
 
 
 
 const Videos = () => {
 
     const [videos, setVideos] = useState([])
+ 
     const token = localStorage.getItem("token")
     //tendrás que coger el role cuando sea post ya que para esto necesitas ser administrador
 
@@ -22,9 +25,12 @@ const Videos = () => {
                     "Authorization": token
                 }
             })
-            console.log(response)
+            // console.log(response)
 
             setVideos(response.data.videos) // hay que poner lo del back
+            
+            // setCategory(response.data.videos.category)
+            // console.log(response.data.videos.category)
         }
 
         getVideos()
@@ -34,9 +40,9 @@ const Videos = () => {
     return (
         <div className="fondo">
             <Navbar />
-            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+            <h1><img className="GeoEco2" src={Economía} /><span className="geo">Geo</span><span className="eco">Eco</span> <img className="GeoEco2" src={Geología} /></h1>
             <h2 className="web">La web del Conocimiento</h2>
-            <h1 className="tenemos2">Todos nuestros Vídeos  <img className="GeoEco2" src={videos2} /></h1>
+            <h1 className="tenemos2pay">Todos nuestros Vídeos  <img className="GeoEco2" src={videos2} /></h1>
             {
 
                 videos.map(video => {
@@ -46,9 +52,12 @@ const Videos = () => {
 
                             <div className="caja" >
 
-                                <h3 className="tituloV"> Título: {video.titleVideo} </h3>
-                                <h3 className="videoV"> Vídeo: {video.videoV} </h3>
-                                <h3 className="likes2V"> Nº de Likes: {video.likes.length} </h3>
+                                <h3 className="tituloV"> <span className="titulovid">Título:</span> {video.titleVideo} </h3>
+                                <h3 className="videoV">Vídeo:{video.videoV} </h3>
+                                <h3 className="likes2V"> <span className="videotil">Nº de Likes:</span> {video.likes.length} </h3>
+                                <p className="cate"><span className="videotil">Categoría:</span> {video.category.categoryName} </p>
+
+
 
                             </div>
                         </Link>
@@ -56,6 +65,10 @@ const Videos = () => {
                     )
                 })
             }
+            
+        
+         
+
             <Link to="/contenido" className="registroboton3  nav-link active " >Atrás</Link>
             <h1 className="ahora">Ahora puedes disfrutar de todos los Vídeos de nuestro canal de  <span className="youtube2">Youtube</span></h1>
             <h1 className="siguenos">Síguenos en nuestro canal de <span className="youtube">Youtube</span> !</h1>

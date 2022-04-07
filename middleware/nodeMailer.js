@@ -4,11 +4,21 @@ const userMail = process.env.USER_MAIL
 const pass = process.env.PASS_MAIL
 
 const transport = nodemailer.createTransport({    // Con esto creo la conexión SMTP (tipo de conexion) y le paso las credenciales del correo remitente
-    service: "Gmail", // se puede aplicar a hotmail
+    //Gmail
+  
+  service: "Gmail", // se puede aplicar a hotmail
     pool: true,
-    host: 'smtp.gmail.com', // Gmail as mail client / si fuera hotmail pondrías smtp.hotmail.com
-    port: 465,
+    host: 'smtp.gmail.com' , // Gmail as mail client / si fuera hotmail pondrías "smtp-mail.outlook.com" gmail: 'smtp.gmail.com'
+    port: 465, 
     secure: true, // use SSL
+
+    //Hotmail
+
+//     service: "Hotmail",
+
+//     host: "smtp-mail.outlook.com", // hostname
+//     secureConnection: false, // TLS requires secureConnection to be false
+//     port: 587, // port for secure SMTP
 
   auth: {
     user: userMail,

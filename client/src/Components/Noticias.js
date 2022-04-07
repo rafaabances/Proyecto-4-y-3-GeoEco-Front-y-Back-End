@@ -5,6 +5,8 @@ import "./noticias.css";
 import Navbar from "./NavBar";
 import Blog from "./img/Blog.jpg";
 import artículos from "./img/artículos.jpg";
+import Geología from "./img/Geología.jpg"
+import Economía from "./img/Economía.png"
 
 
 
@@ -34,9 +36,9 @@ const Noticias = () => {
     return (
         <div className="fondo">
             <Navbar />
-            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+            <h1><img className="GeoEco2" src= {Economía} /><span className="geo">Geo</span><span className="eco">Eco</span> <img className="GeoEco2" src= {Geología} /></h1>
             <h2 className="web">La web del Conocimiento</h2>
-            <h1 className="tenemos2">Todas nuestras Noticias  <img className="GeoEco2" src= {artículos} /></h1>
+            <h1 className="tenemos2pay">Todas nuestras Noticias  <img className="GeoEco2" src= {artículos} /></h1>
           {
 
                 noticias.map(noticia => {
@@ -48,9 +50,10 @@ const Noticias = () => {
 
                             <div className="caja">
                                
-                                <h3 className="titulo"> Título:  {noticia.titleNew} </h3>
-                                {/* <h3 className="noticia" >Noticia: {noticia.image} </h3> */}
-                                <h3 className="likes2"> Nº de Likes: {noticia.likes.length} </h3>
+                            <h3 className="tituloV"> <span className="titulovid">Título:</span>  {noticia.titleNew} </h3>
+                            <h3 className="videoN">Noticia: </h3>
+                            <h3 className="likes2V"> <span className="videotil">Nº de Likes:</span> {noticia.likes.length} </h3>
+                            <p className="cate"><span className="videotil">Categoría:</span> {noticia.category.categoryName} </p>
 
                             </div>
                         </Link>

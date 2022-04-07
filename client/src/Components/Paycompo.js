@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import GeoEco1 from "./img/GeoEco1.jpg";
 import Flecha from "./img/flechaabajo.jpg";
+import Geología from "./img/Geología.jpg"
+import Economía from "./img/Economía.png"
 
 
 const Paycompo = () => {
     const [pay, setPay] = useState({
-      
+
         address: "",
         paymentId: "",
         membership: "",
@@ -35,8 +37,8 @@ const Paycompo = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newpayment", { ...pay },{
-                headers: 
+            const response = await axios.post("http://localhost:5000/api/newpayment", { ...pay }, {
+                headers:
                 {
                     "Authorization": token
                 }
@@ -57,7 +59,7 @@ const Paycompo = () => {
     return (
         <div className="fondo" >
 
-            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+            <h1><img className="GeoEco2" src={Economía} /><span className="geo">Geo</span><span className="eco">Eco</span> <img className="GeoEco2" src={Geología} /></h1>
             <h2 className="web">La web del Conocimiento</h2>
 
             <form onSubmit={registerSubmit} className="registro" >
@@ -69,10 +71,10 @@ const Paycompo = () => {
                 <label className="labelR" htmlFor="paymentId">paymentId</label>
                 <input className="expand-lg borR" type="text" name="paymentId" value={pay.paymentId} placeholder="Introduzca su paymentId" onChange={onChangeInput} />
                 <label className="labelR" htmlFor="membership">Tipo de suscripción</label>
-                <select  className="op" name="membership" onChange={onChangeInput}>
-                    <option  className="op" value="value1">Premium  10 Euros/mes</option>
-                    <option  className="op" value="value2">Plata 5 Euros/mes</option>
-                    <option  className="op" value="value3">Bronze 1 Euro/mes </option>
+                <select className="op" name="membership" onChange={onChangeInput}>
+                    <option className="op" value="Premium  10 Euros/mes">Premium  10 Euros/mes</option>
+                    <option className="op" value="Plata 5 Euros/mes">Plata 5 Euros/mes</option>
+                    <option className="op" value="Bronze 1 Euro/mes">Bronze 1 Euro/mes </option>
                 </select>
 
 
@@ -95,9 +97,9 @@ const Paycompo = () => {
 
             <h3 className="preguntare1">¿Deseas volver atras?</h3>
             <h5 className="preguntare2">No se creará un usuario</h5>
-            <img className="flecha" src= {Flecha} />
+            <img className="flecha" src={Flecha} />
             <Link to="/" className="registroboton nav-link active " aria-current="page" >Atrás</Link>
-            
+
             <img className="GeoEco" src={GeoEco1} />
 
 

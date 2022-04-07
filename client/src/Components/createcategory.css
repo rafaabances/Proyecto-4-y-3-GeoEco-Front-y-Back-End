@@ -28,8 +28,13 @@
     font-style:italic ;
     margin-top: 15px;
     margin-bottom: 15px;
-    color: rgb(244, 8, 8);
+    color: rgb(186, 9, 9);
     font-weight: bold;
+    text-shadow: 1px 1px 1px rgb(186, 12, 12);
+    border: solid 3px rgb(191, 191, 33);
+    padding: 5px;
+    background-color: rgba(255, 253, 253, 0.704);
+    margin-right: 90px;
 }
 
 .Crearvidcat{

@@ -43,10 +43,16 @@
 }
 
 .quienes{
-    color: black;
+    color: rgb(129, 15, 15);
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 20px;
+    border: solid 3px gold;
+    margin-left: 90px;
+    margin-right: 90px;
+    padding: 5px;
+    background-color: rgb(77, 166, 166);
+    border-radius: 25px;
 }
 
 
@@ -61,6 +67,13 @@
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 5px;
+    background-color: rgb(77, 166, 166);
+    border-radius: 25px;
+    border: solid 3px gold;
+    margin-top: 20px;
 }
 
 
@@ -72,8 +85,15 @@
 
 .pregunta{
     color: rgb(10, 10, 195);
+    font-size: 18px;
     font-weight: bold;
-    margin: 20px;
+    margin-left: 70px;
+    margin-right: 70px;
+    padding: 5px;
+    background-color: rgb(77, 166, 166);
+    border-radius: 25px;
+    border: solid 3px gold;
+    margin-top: 20px;
 }
 
 
@@ -114,6 +134,14 @@
 
 
     margin: 5px;
+}
+
+.resaltar{
+    border: solid 3px yellow;
+    border-radius: 5px;
+    background-color: rgb(149, 229, 229);
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 

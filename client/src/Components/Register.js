@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import GeoEco1 from "./img/GeoEco1.jpg";
 import Flecha from "./img/flechaabajo.jpg"
+import Geología from "./img/Geología.jpg"
+import Economía from "./img/Economía.png"
 
 
 const Register = () => {
@@ -54,12 +56,12 @@ const Register = () => {
     return (
         <div className="fondo" >
 
-            <h1><span className="geo">Geo</span><span className="eco">Eco</span></h1>
+            <h1><img className="GeoEco2" src={Economía} /><span className="geo">Geo</span><span className="eco">Eco</span> <img className="GeoEco2" src={Geología} /></h1>
             <h2 className="web">La web del Conocimiento</h2>
 
             <form onSubmit={registerSubmit} className="registro" >
 
-                <h2 className="Registro" >Registro</h2>
+                <h2 className="tenemos2pay" >Registro</h2>
                 <label className="labelR" htmlFor="name">Nombre</label>
                 <input className="expand-lg borR" type="text" name="name" value={user.name} placeholder="Introduzca tu nombre" onChange={onChangeInput} />
                 <label className="labelR" htmlFor="email">Email</label>
@@ -88,9 +90,9 @@ const Register = () => {
             </form>
 
             <h3 className="preguntare">¿Ya estás registrado?</h3>
-            <img className="flecha" src= {Flecha} />
+            <img className="flecha" src={Flecha} />
             <Link to="/login" className="registroboton nav-link active " aria-current="page" >Login</Link>
-            
+
             <img className="GeoEco" src={GeoEco1} />
 
         </div>

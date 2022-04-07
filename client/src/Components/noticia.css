@@ -207,13 +207,19 @@ margin: 10px;
     font-size: 20px;
 }
 
-.comentarios{
+.comentariosN{
     color: black;
     text-shadow: 1px 1px 1px black;
     font-weight: bold;
     padding: 10px;
     background-color: rgb(237, 231, 231);
+    border-radius: 15px;
+    border: dotted 3px yellow;
+    margin-left: 5px;
+    text-align: left;
+    margin-right: 25px;
 }
+
 
 .botonborrar{
     color: white;
@@ -224,6 +230,17 @@ margin: 10px;
     margin-right: 220px;
     border-radius: 25px;
     margin-bottom: 20px;
+}
+
+.botonborrargustaN{
+    color: white;
+    font-weight: bold;
+    border: solid yellow 3px;
+    background-color: rgb(16, 146, 14);
+    margin-right: px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    padding: 8px;
 }
 
 

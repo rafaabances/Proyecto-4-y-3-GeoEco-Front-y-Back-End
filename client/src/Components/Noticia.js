@@ -12,7 +12,7 @@ const Noticia = () => {
     const { noticiaId } = useParams() //recibes el prámetro de Noticias Js
 
     const [new2, setNew2] = useState({})
-    const [category, setCategory] = useState({})
+    const [category, setCategory] = useState([])
     const [comment, setComment] = useState([])
     const [like, setLike] = useState([])
     const token = localStorage.getItem("token")
@@ -41,6 +41,22 @@ const Noticia = () => {
         getNoticia()
     }, [])
 
+    const addlikes = async () => {
+        try {
+            const res = await axios.post(`http://localhost:5000/api/bloglikes/${noticiaId}`, { ...noticiaId }, {
+                headers:
+                {
+                    "Authorization": token
+                }
+            })
+            setSuccessMessage(res.data.message)
+
+        } catch (error) {
+            setErrorMessage(error.message)
+        }
+    }
+
+
 
     const deleteNoticia = async () => {
         try {
@@ -67,18 +83,20 @@ const Noticia = () => {
             <Navbar />
             <div className="caja">
 
-                <h1 className="titulo">{new2.titleNew}  </h1>
-                
-                <p className="des">{new2.description} </p>
-                
-                <p className="date">{new2.date} </p>
+            <h1 className="tituloV"><span className="titulovid">Título: </span>{new2.titleNew}  </h1>
+
+                <p className="des"> <span className="videotil">Descripción: </span>{new2.description} </p>
+
+                <p className="videoV"> Noticia: </p>
+
+                <p className="date"> <span className="videotil">Fecha: </span> {new2.date} </p>
 
 
                 <div key={category._id}>
-                    <p className="cate">{category.categoryName} </p>
+                    <p className="cate"><span className="videotil">Categoría:</span> {category.categoryName} </p>
                 </div>
 
-                <div>
+                {/* <div>
                     {
                         like.map(megusta => {
                             return (
@@ -89,7 +107,7 @@ const Noticia = () => {
                             )
                         })
                     }
-                </div>
+                </div> */}
 
             </div>
 
@@ -100,13 +118,13 @@ const Noticia = () => {
 
             <h2 className="titlecomentario">Comentarios:</h2>
 
-            <div className="cajacomen">
+            <div>
                 {
                     comment.map(comentario => {
                         return (
                             <div key={comentario._id}>
                                 <tr>
-                                    <p className="comentarios">{comentario.commentTextBlog} </p>
+                                    <p className="comentariosN">{comentario.commentTextBlog} </p>
                                 </tr>
 
 
@@ -120,13 +138,15 @@ const Noticia = () => {
 
 
 
-            <p className="borrar">Borrar solo por el Administrador</p>
+            <p className="borrar">Borrar /Modificar solo Administrador</p>
             <button className="botonborrar" onClick={deleteNoticia}>Borrar Noticia</button>
-
-            <p className="borrar">Modificar solo por el Administrador</p>
             <Link key={new2._id} to={`/noticiamodify/${new2._id}`}>
-                <button className="botonborrar">Modificar Noticia</button>
+                <button className="botonborrarv">Modificar Noticia</button>
             </Link>
+
+            <p className="borrarv">Dar Like</p>
+
+            <button className="botonborrargustaN" onClick={addlikes}>Me Gusta</button>
 
 
             <div className="message_ok" style={{ display: successMessage ? "block" : "none" }}>

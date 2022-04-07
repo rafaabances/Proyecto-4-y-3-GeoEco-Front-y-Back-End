@@ -15,8 +15,12 @@ cloudinary.config({
 })
 
 
-BlogRouter.get("/news", auth, async (req, res) => {
-    let news = await Blog.find({}) // Se hace con find ( find viene de mongoose) para buscar dentro de la colección, así devuelve todos los objetos que hay en Author
+BlogRouter.get("/news", auth, async (req, res) => {  // Se hace con find ( find viene de mongoose) para buscar dentro de la colección, así devuelve todos los objetos que hay en Author
+    let news = await Blog.find({}).populate({
+        path: 'category',
+        select: 'categoryName'
+    }) 
+    
     try {
 
         return res.status(200).send({
@@ -264,48 +268,36 @@ const removeTmp = (path) => {
 }
 
 
-BlogRouter.post("/bloglikes", auth, async (req, res) => {
-    const {BlogId} = req.body;
+BlogRouter.post("/bloglikes/:noticiaId", auth, async (req, res) => {
+    const {noticiaId } = req.params;
     const {id} = req.user
     try {
-        let findBlog = await Blog.findById(BlogId)
-        if (!findBlog) {
-            return res.status(400).send({
-                success: false,
-                message: "This Blog does not exist"
-            })
-        }
+        let findBlog = await Blog.findById(noticiaId)
+        // if (!findBlog) {
+        //     return res.status(400).send({
+        //         success: false,
+        //         message: "This Blog does not exist"
+        //     })
+        // }
 
         let findUser = await findBlog.likes.find(user => user._id.equals(id))
         console.log(id)
         if(findUser){
-            await Blog.findByIdAndUpdate(BlogId, { $pull: { likes: id} });
+            await Blog.findByIdAndUpdate(noticiaId, { $pull: { likes: id} });
     
-            // return res.status(400).send({ / otra manera
-            //     success: false,
-            //     message: "Ya le has dado like a este blog"
-            // })
+            return res.status(200).send({ // otra manera
+                success: false,
+                message: "Ya le has dado like a este blog"
+            })
         }else{
-            await Blog.findByIdAndUpdate(BlogId, { $push: { likes: id} });
+            await Blog.findByIdAndUpdate(noticiaId, { $push: { likes: id} });
+            return res.status(200).send({ 
+                success: true,
+                message: "Has dado like a este blog"
+            })
         }
 
 
-    //   switch (action) {
-    //     case "like":
-    //       await Blog.findByIdAndUpdate(BlogId, { $push: { likes: id} });
-    //       break;
-
-    //     case "dislike":
-    //       await Blog.findByIdAndUpdate(BlogId, { $pull: { likes: id} });
-    //       break;
-
-    //     default:
-    //       break;
-    //   }
-
-      return res.status(200).send({
-        success: true,
-      })
     } catch (error) {
         return res.status(500).send({
             succes: false,

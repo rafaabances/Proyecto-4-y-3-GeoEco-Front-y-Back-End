@@ -72,7 +72,7 @@ PayRouter.post("/newpayment", auth,  async (req, res) => {
         membership
     } = req.body
 
-    const {id} = req.user.id
+    const id = req.user.id
     // const userId = await User.findById(id)
     let PayN = new Pay({ // viene del modelo user
         user: id,
@@ -80,6 +80,7 @@ PayRouter.post("/newpayment", auth,  async (req, res) => {
         paymentId,
         membership
     })
+    console.log(id)
 
     if (address.length < 10) {
         return res.status(400).send({

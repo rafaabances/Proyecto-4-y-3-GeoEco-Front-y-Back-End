@@ -193,8 +193,9 @@ margin: 10px;
 .des{
     color: black;
     font-weight: bold;
-    /* text-shadow: 1px 1px 1px black; */
+    text-shadow: 1px 1px 1px black;
     font-size: 17px;
+    margin-top: 30px;
 }
 
 .date{
@@ -205,10 +206,10 @@ margin: 10px;
 }
 
 .cate{
-    color: green;
-    text-shadow: 1px 1px 1px black;
+    color: black !important;
+    text-shadow: 1px 1px 1px white;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 19px !important;
 }
 
 .likesnoti{
@@ -226,13 +227,17 @@ margin: 10px;
     font-size: 20px;
 }
 
-.comentarios{
+.comentariosV{
     color: black;
     text-shadow: 1px 1px 1px black;
     font-weight: bold;
     padding: 10px;
     background-color: rgb(237, 231, 231);
+    border-radius: 15px;
+    border: dotted 3px yellow;
+    margin-left: 5px;
     text-align: left;
+    margin-right: 25px;
 }
 
 .borrar{
@@ -254,6 +259,17 @@ margin: 10px;
     margin-right: 220px;
     border-radius: 25px;
     margin-bottom: 20px;
+}
+
+.botonborrargustaV{
+    color: white;
+    font-weight: bold;
+    border: solid yellow 3px;
+    background-color: rgb(16, 146, 14);
+    margin-right: 250px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    padding: 8px;
 }
 
 
