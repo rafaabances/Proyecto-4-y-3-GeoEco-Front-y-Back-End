@@ -4,8 +4,7 @@
 
 <!-- Accede a la web: [FútbolRafi.com](https://futbolrafi.netlify.app/home) --> // poner la URL del web buena cuando se cree.
 
-![Home](https://user-images.githubusercontent.com/96442220/157253251-0a835e08-72d9-4028-a06b-700eafe21840.png)
-
+![Portada](https://user-images.githubusercontent.com/96442220/162167230-2e18274b-60d3-4418-b267-d9e2e7c6005c.jpg)
 
 
 Se trata de un proyecto en el cual se va a desarrollar una web de contenidos sobre Geología y Economía y también a futuro diversos temas sobre ciencia, política economía, esta destinado a personas curiosas que les guste aprender sobre este tipo de temas, va a constar de una página Home otra de contactos, otra de vídeos y otra de blog de artículos y noticias en los cuales se va a poder realizar comentarios, para acceder a la Home y a la página de contacto no va a ser necesario suscribirse y pagar pero para acceder a los contenidos del blog y vídeos sí. Esto se va a controlar estableciendo un acceso en el que será necesario escribir tu usuario y contraseña y para poder validar este usuario o contraseña que obtienes registrándote en el formulario de la página de contactos, deberás haber pagado el importe mensual/anual que se haya establecido.
