@@ -21,8 +21,26 @@ Se trata de un proyecto en el cual se va a desarrollar una web de contenidos sob
 ***
 5. Vídeos: Aquí el suscriptor podrá visualizar todo tipo de vídeos agrupados en 2 categorías Geología y Economía,  también se podrá responder con comentarios a esas noticias y artículos, solo podrá acceder quien se haya suscrito y realizado el pago.
 ***
+6. Login: Aquí el suscriptor o administrador podrán loguearse.
+
+7. Registro: Aquí el suscriptor podrá registrarse y procederá al pago.
+***
+
+8. Pago: Aquí el suscriptor podrá realizar el pagop en la categoría que considere y accederá al Login.
+***
+
+9. LogOut: Aquí se podrá desloguearse tanto el suscriptor como el administrador.
+***
+
+10. Contenidos: Aquí los suscriptores podrán ver los contenidos de vídeos y noticias.
+***
+
+11. Contacto/Landing Page: En esta página se explica como es la empresa, lo que contiene y se puede registrar o hacer login, lo que te permite acceder a los contenidos.
+***
 
 * En blogs y videos se podrá poner comentarios.
+
+
 
 ## Para poder acceder hemos utilizado 2 tipos de usuarios:
 
