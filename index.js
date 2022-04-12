@@ -57,7 +57,7 @@ mongoose.connect(URL, {
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build')) // este es el servidor de heroku
     app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')) //y manda el indexedDB.htm
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')) //y manda el index.html
     })
 }
 
