@@ -2,7 +2,7 @@
 
 ## GeoEco.Com
 
-<!-- Accede a la web: [FútbolRafi.com](https://futbolrafi.netlify.app/home) --> // poner la URL del web buena cuando se cree.
+!-- Accede a la web: [GeoEco.com](https://rafi95geoeco.herokuapp.com/) --> 
 
 ![Portada](https://user-images.githubusercontent.com/96442220/162167230-2e18274b-60d3-4418-b267-d9e2e7c6005c.jpg)
 
