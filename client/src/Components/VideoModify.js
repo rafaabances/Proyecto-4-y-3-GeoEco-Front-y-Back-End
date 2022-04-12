@@ -21,7 +21,7 @@ const VideoModify = () =>{
 
     useEffect(()=>{
         const getCategory = async () =>{
-            const response = await axios.get("http://localhost:5000/api/categories",
+            const response = await axios.get("/api/categories",
             {
                 headers:{
                     "Authorization": token
@@ -53,7 +53,7 @@ const VideoModify = () =>{
     const formSubmit = async e =>{
         e.preventDefault()
         try {
-            const response = await axios.put(`http://localhost:5000/api/updatevideo/${videoId}`, {...info},
+            const response = await axios.put(`/api/updatevideo/${videoId}`, {...info},
             {
                 headers:{
                     "Authorization": token

@@ -35,7 +35,7 @@ const CreateCommentN = () => {
 
 
         try {
-            const response = await axios.post(`http://localhost:5000/api/newcommentblog/${noticiaId}`, { ...commentNew },
+            const response = await axios.post(`/api/newcommentblog/${noticiaId}`, { ...commentNew },
             {
                 headers:{
                     "Authorization": token

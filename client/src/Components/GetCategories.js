@@ -25,7 +25,7 @@ const GetCategories = () => {
 
     useEffect(() => {
         const getCategories = async () => {
-            const response = await axios.get("http://localhost:5000/api/categories", {
+            const response = await axios.get("/api/categories", {
                 headers: { // esto para cuando la ruta es privada (auth, es decir necesitas token)
                     "Authorization": token
                 }

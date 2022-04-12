@@ -30,7 +30,7 @@ const Login = () => {
     const loginSubmit = async e => {
         e.preventDefault() // no se refresca la página cuando llamas a la función, con esto no envía datos hasta que no se da a registro
         try {
-            const response = await axios.post("http://localhost:5000/api/login", { ...user });
+            const response = await axios.post("/api/login", { ...user });
             console.log(response)
             setSuccessMessage(response.data.message)
             localStorage.setItem("token", response.data.token) //te coje el token de inspeccionar en aplicación

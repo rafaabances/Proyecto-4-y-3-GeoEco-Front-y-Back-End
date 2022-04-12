@@ -20,7 +20,7 @@ const Videos = () => {
 
     useEffect(() => {
         const getVideos = async () => {
-            const response = await axios.get("http://localhost:5000/api/videos", {
+            const response = await axios.get("/api/videos", {
                 headers: { // esto para cuando la ruta es privada (auth, es decir necesitas token)
                     "Authorization": token
                 }

@@ -25,7 +25,7 @@ const Noticia = () => {
 
     useEffect(() => {
         const getNoticia = async () => {
-            const response = await axios.get(`http://localhost:5000/api/findnew/${noticiaId}`, { // por eso cambiamos findnew/:id por findnew/${noticiaId}
+            const response = await axios.get(`/api/findnew/${noticiaId}`, { // por eso cambiamos findnew/:id por findnew/${noticiaId}
                 headers: {
                     "Authorization": token
                 }
@@ -43,7 +43,7 @@ const Noticia = () => {
 
     const addlikes = async () => {
         try {
-            const res = await axios.post(`http://localhost:5000/api/bloglikes/${noticiaId}`, { ...noticiaId }, {
+            const res = await axios.post(`/api/bloglikes/${noticiaId}`, { ...noticiaId }, {
                 headers:
                 {
                     "Authorization": token
@@ -60,7 +60,7 @@ const Noticia = () => {
 
     const deleteNoticia = async () => {
         try {
-            const res = await axios.delete(`http://localhost:5000/api/deletenew/${noticiaId}`, {
+            const res = await axios.delete(`/api/deletenew/${noticiaId}`, {
                 headers:
                 {
                     "Authorization": token

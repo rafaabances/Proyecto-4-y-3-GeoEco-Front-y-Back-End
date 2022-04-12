@@ -17,7 +17,7 @@ const GetCategory = () => {
 
     useEffect(() => {
         const getCategory= async () => {
-            const response = await axios.get(`http://localhost:5000/api/findcategory/${categoryId}`, { // por eso cambiamos findnew/:id por findnew/${noticiaId}
+            const response = await axios.get(`/api/findcategory/${categoryId}`, { // por eso cambiamos findnew/:id por findnew/${noticiaId}
                 headers: {
                     "Authorization": token
                 }
@@ -33,7 +33,7 @@ const GetCategory = () => {
 
     const DeleteCategory = async () => {
         try {
-            const res = await axios.delete(`http://localhost:5000/api/deletecategory/${categoryId}`, {
+            const res = await axios.delete(`/api/deletecategory/${categoryId}`, {
                 headers:
                 {
                     "Authorization": token

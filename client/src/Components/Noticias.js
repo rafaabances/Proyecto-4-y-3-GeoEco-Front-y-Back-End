@@ -19,7 +19,7 @@ const Noticias = () => {
 
     useEffect(() => {
         const getNoticias = async () => {
-            const response = await axios.get("http://localhost:5000/api/news", {
+            const response = await axios.get("/api/news", {
                 headers: { // esto para cuando la ruta es privada (auth, es decir necesitas token)
                     "Authorization": token
                 }

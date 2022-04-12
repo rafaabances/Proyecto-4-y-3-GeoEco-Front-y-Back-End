@@ -36,7 +36,7 @@ const CreateCommentV = () => {
 
 
         try {
-            const response = await axios.post(`http://localhost:5000/api/newcommentvideo/${videoId}`, { ...commentV },
+            const response = await axios.post(`/api/newcommentvideo/${videoId}`, { ...commentV },
             {
                 headers:{
                     "Authorization": token

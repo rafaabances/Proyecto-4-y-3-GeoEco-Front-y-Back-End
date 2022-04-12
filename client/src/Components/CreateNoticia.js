@@ -16,7 +16,7 @@ const [category, setCategory] = useState([])
 
     useEffect(()=>{
         const getCategory = async () =>{
-            const response = await axios.get("http://localhost:5000/api/categories",
+            const response = await axios.get("/api/categories",
             {
                 headers:{
                     "Authorization": token
@@ -60,7 +60,7 @@ const [category, setCategory] = useState([])
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newarticle", { ...noti },
+            const response = await axios.post("/api/newarticle", { ...noti },
             {
                 headers:{
                     "Authorization": token

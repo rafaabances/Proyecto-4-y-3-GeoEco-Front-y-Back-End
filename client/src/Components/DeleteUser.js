@@ -17,7 +17,7 @@ const GetUser = () => {
 
     useEffect(() => {
         const getUser= async () => {
-            const response = await axios.get(`http://localhost:5000/api/finduser/${userId}`, { // por eso cambiamos findnew/:id por findnew/${noticiaId}
+            const response = await axios.get(`/api/finduser/${userId}`, { // por eso cambiamos findnew/:id por findnew/${noticiaId}
                 headers: {
                     "Authorization": token
                 }
@@ -33,7 +33,7 @@ const GetUser = () => {
 
     const DeleteUser = async () => {
         try {
-            const res = await axios.delete(`http://localhost:5000/api/deleteuser/${userId}`, {
+            const res = await axios.delete(`/api/deleteuser/${userId}`, {
                 headers:
                 {
                     "Authorization": token

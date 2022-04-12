@@ -21,7 +21,7 @@ const GetPays = () => {
 
     useEffect(() => {
         const getpays = async () => {
-            const response = await axios.get("http://localhost:5000/api/payments", {
+            const response = await axios.get("/api/payments", {
                 headers: { // esto para cuando la ruta es privada (auth, es decir necesitas token)
                     "Authorization": token
                 }

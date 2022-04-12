@@ -32,7 +32,7 @@ const CreateCategory = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newcategory", { ...category }, {
+            const response = await axios.post("/api/newcategory", { ...category }, {
                 headers:{
                     "Authorization": token
                 }

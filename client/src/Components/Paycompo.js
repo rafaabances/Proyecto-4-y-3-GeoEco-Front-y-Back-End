@@ -37,7 +37,7 @@ const Paycompo = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newpayment", { ...pay }, {
+            const response = await axios.post("/api/newpayment", { ...pay }, {
                 headers:
                 {
                     "Authorization": token

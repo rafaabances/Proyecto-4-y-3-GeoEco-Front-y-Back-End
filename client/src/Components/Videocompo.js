@@ -27,7 +27,7 @@ const Videocompo = () => {
 
     useEffect(() => {
         const getVideo = async () => {
-            const response = await axios.get(`http://localhost:5000/api/findvideo/${videoId}`, { // por eso cambiamos findnew/:id por findnew/${noticiaId}
+            const response = await axios.get(`/api/findvideo/${videoId}`, { // por eso cambiamos findnew/:id por findnew/${noticiaId}
                 headers: {
                     "Authorization": token
                 }
@@ -45,7 +45,7 @@ const Videocompo = () => {
 
     const addlikes = async () =>{
         try {
-            const res = await axios.post(`http://localhost:5000/api/videolikes/${videoId}`, {...videoId}, {
+            const res = await axios.post(`/api/videolikes/${videoId}`, {...videoId}, {
                 headers: 
                 {
                     "Authorization": token
@@ -61,7 +61,7 @@ const Videocompo = () => {
 
     const deleteVideo = async() =>{
         try {
-            const res = await axios.delete(`http://localhost:5000/api/deletevideo/${videoId}`, {
+            const res = await axios.delete(`/api/deletevideo/${videoId}`, {
                 headers: 
                 {
                     "Authorization": token

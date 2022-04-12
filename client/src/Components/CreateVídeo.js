@@ -13,7 +13,7 @@ const CreateVideo = () => {
 
     useEffect(()=>{
         const getCategory = async () =>{
-            const response = await axios.get("http://localhost:5000/api/categories",
+            const response = await axios.get("/api/categories",
             {
                 headers:{
                     "Authorization": token
@@ -55,7 +55,7 @@ const CreateVideo = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/newvideo", { ...vid },
+            const response = await axios.post("/api/newvideo", { ...vid },
             {
                 headers:{
                     "Authorization": token

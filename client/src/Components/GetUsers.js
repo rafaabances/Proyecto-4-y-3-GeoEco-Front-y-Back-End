@@ -24,7 +24,7 @@ const GetUsers = () => {
 
     useEffect(() => {
         const getUsers = async () => {
-            const response = await axios.get("http://localhost:5000/api/users", {
+            const response = await axios.get("/api/users", {
                 headers: { // esto para cuando la ruta es privada (auth, es decir necesitas token)
                     "Authorization": token
                 }
